@@ -1,0 +1,76 @@
+use sql_inventory;
+-- problem 1 
+select name,unit_price,unit_price*1.1 as 'new price' 
+from products;
+
+-- problem 2
+use sql_store;
+select * from orders where order_date>='2019-01-01';
+
+-- problem 3
+select * from order_items
+where order_id=6
+and quantity*unit_price>=30; 
+
+-- problem 4
+select * 
+from products
+where quantity_in_stock in (49,38,72);
+
+-- problem 5
+select * 
+from customers
+where birth_date
+between '1990-01-01' and '2000-01-01';
+
+
+-- problem 6.1
+select *
+from customers
+where address like '%trail%' or address like '%avenue%';
+
+
+-- problem 6.2
+select * from customers
+where phone like '%9';
+
+-- problem 7.1
+select * from customers
+where first_name regexp 'elka|ambur';
+
+-- problem 7.2
+select * 
+from customers
+where last_name 
+regexp 'ey$|on$';
+
+-- problem 7.3
+select * 
+from customers
+where last_name
+regexp '^my|se';
+
+-- problem 7.4
+select * from customers
+where last_name 
+regexp 'b[ru]';
+
+-- problem 8
+select * 
+from orders
+where shipped_date is null;
+
+-- problem 9
+select order_id,product_id,quantity,unit_price
+from 
+order_items
+where 
+order_id=2 
+order by quantity*unit_price desc;
+
+-- problem 10
+select * 
+from customers
+order by points desc
+limit 3;
+
