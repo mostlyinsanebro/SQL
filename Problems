@@ -74,3 +74,24 @@ from customers
 order by points desc
 limit 3;
 
+-- problem 11
+select order_id,oi.product_id,name as 'product name',quantity_in_stock,oi.unit_price
+from order_items oi
+join products p
+        on oi.product_id=p.product_id;
+        
+        
+-- problem 12
+select * 
+from order_items oi
+join sql_inventory.products p
+	on oi.product_id=p.product_id
+order by order_id;
+
+-- problem 13
+use sql_hr;
+select e1.first_name as Employee,e2.first_name as Manager
+from employees e1
+left join employees e2
+	on e1.reports_to=e2.employee_id;
+    
