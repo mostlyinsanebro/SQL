@@ -1,0 +1,30 @@
+-- JOINING MULTIPLE TABLES
+
+-- Exercise (84.1 png, 84.2 png, 84.3 png)
+USE sql_store;
+
+SELECT order_id,order_date,first_name,last_name,os.name as 'STATUS'
+FROM orders o
+JOIN customers c
+ON o.customer_id=c.customer_id
+JOIN order_statuses os
+ON o.status=os.order_status_id
+ORDER BY order_id;
+
+
+-- Exercise (86.png)
+USE sql_invoicing;
+
+SELECT payment_id,
+	   c.name as client_name,
+	   p.invoice_id,
+       p.date,
+       p.amount,
+       pm.name as 'mode of payment'
+FROM payments p
+JOIN clients c
+	ON p.client_id=c.client_id
+JOIN invoices i
+	ON p.invoice_id=i.invoice_id
+JOIN payment_methods pm
+	ON p.payment_method=pm.payment_method_id;
