@@ -3,7 +3,7 @@
 
 USE sql_hr;
 
-SELECT e1.first_name as 'Employee',e2.first_name as 'Manager'
+SELECT e1.employee_id,e1.first_name as 'Employee',e2.first_name as 'Manager'
 FROM employees e1
 LEFT JOIN employees e2
 	ON e1.reports_to=e2.employee_id;
