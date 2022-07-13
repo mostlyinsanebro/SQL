@@ -1,0 +1,21 @@
+-- INNER JOIN
+
+-- WAQ to join the customers table with orders table in sql_store db
+-- and display customer_id,order_id,first_name,last_name
+
+-- Note:- JOIN == INNER JOIN (NO NEED TO WRITE INNER)
+
+SELECT order_id,c.customer_id,first_name,last_name
+FROM customers c
+JOIN orders o
+	on c.customer_id=o.customer_id;
+    
+-- Exercise 
+
+-- WAQ to join order_items table with products table 
+-- and display order_id,product_id,product_name,oi.quantity and oi.unit_price.
+
+SELECT order_id,oi.product_id,name as 'PRODUCT NAME',oi.quantity,oi.unit_price
+FROM order_items oi
+JOIN products p
+WHERE oi.product_id=p.product_id;
