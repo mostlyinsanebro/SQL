@@ -1,0 +1,14 @@
+-- IMPLICIT JOIN SYNTAX
+
+
+-- EXPLICIT INNER JOIN 
+select order_id,first_name
+from orders o
+JOIN customers c
+	ON o.customer_id=c.customer_id
+ORDER BY order_id;
+
+-- IMPLICIT INNER JOIN (where condn on top of a cross-join)
+Select * 
+from orders o, customers c
+WHERE o.customer_id=c.customer_id;
