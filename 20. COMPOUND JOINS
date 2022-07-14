@@ -1,0 +1,9 @@
+-- COMPOUND JOINS
+-- Join tables order_items and order_item_notes
+--  based on 2 columns i.e. Compound Join
+
+SELECT *
+FROM order_items oi
+JOIN order_item_notes oin
+WHERE oi.order_id=oin.order_id
+AND oi.product_id=oin.product_id;
