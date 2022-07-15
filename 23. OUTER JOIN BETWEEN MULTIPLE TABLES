@@ -1,0 +1,28 @@
+-- OUTER JOINS BETWEEN MULTIPLE TABLES
+
+-- As best practice, avoid right joins and use left joins instead
+-- if you need to perform an outer join.
+
+SELECT c.customer_id,
+	   first_name,
+       order_id
+FROM customers c
+LEFT JOIN orders o
+	ON o.customer_id=c.customer_id
+LEFT JOIN shippers sh
+	ON sh.shipper_id=o.shipper_id;
+    
+    
+-- Exercise (94.png and 95.png)
+SELECT o.order_id,
+       order_date,
+	   first_name,
+       sh.name as shipper,
+       os.name
+FROM orders o
+JOIN customers c
+	ON o.customer_id=c.customer_id
+LEFT JOIN shippers sh
+ON sh.shipper_id=o.shipper_id
+JOIN order_statuses os
+	ON os.order_status_id=o.status;
