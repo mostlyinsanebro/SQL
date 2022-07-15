@@ -1,0 +1,40 @@
+-- OUTER JOINS
+-- JOIN CUSTOMERS TABLE WITH ORDERS TABLE
+
+SELECT c.customer_id,
+	   first_name,
+       order_id
+FROM customers c
+JOIN ORDERS o
+	ON c.customer_id=o.customer_id;
+    
+-- The above query returns all the customers that have an order.
+-- But , if we want to have all the customers whether they have an order or not
+-- then , we will have to use outer join (either left outer join or right outer join).
+
+SELECT c.customer_id,
+	   first_name,
+       order_id
+FROM customers c
+LEFT JOIN ORDERS o
+	ON c.customer_id=o.customer_id;
+    
+-- OR
+
+
+SELECT c.customer_id,
+	   first_name,
+       order_id
+FROM orders o
+RIGHT JOIN CUSTOMERS c
+	ON c.customer_id=o.customer_id;
+    
+    
+-- Exercise (91.png and 89.png)
+
+SELECT p.product_id,
+	   name,
+       quantity
+FROM products p 
+LEFT JOIN order_items o
+	ON o.product_id=p.product_id;
