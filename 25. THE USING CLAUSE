@@ -1,0 +1,8 @@
+-- USING CLAUSE
+SELECT 
+	*
+FROM customers c
+JOIN orders o
+	USING(customer_id)
+JOIN shippers sh
+	USING(shipper_id);
