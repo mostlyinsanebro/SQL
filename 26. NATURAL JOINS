@@ -1,0 +1,9 @@
+-- NATURAL JOINS
+-- This join joins two columns based on a similar column by itself
+-- We do not have to write a condition for joining the tables.
+
+SELECT 
+	order_id,
+    first_name
+FROM orders o
+NATURAL JOIN customers c;
