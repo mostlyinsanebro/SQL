@@ -1,0 +1,40 @@
+-- CROSS JOIN
+-- Cross Join is basically used to join every row of one table 
+-- with every other of another column.This can be used if we have two tables
+-- one with various sizes of a product and one with various colors
+-- then we can use a cross join to join every size with every color.
+
+-- Explicit syantax
+SELECT 
+	first_name as customer,
+    name as product
+FROM customers c
+CROSS JOIN products p
+ORDER BY customer;
+
+-- Implicit Synatx
+SELECT 
+	first_name as customer,
+    name as product
+FROM customers c,products p
+ORDER BY customer;
+
+
+-- Exercise(101.png)
+-- Implicit Join
+Select 
+	sh.name as shipper,
+    p.name as product
+FROM shippers sh, products p
+ORDER BY product;
+
+
+-- Explicit Join 
+Select 
+	sh.name as shipper,
+    p.name as product
+FROM shippers sh
+CROSS JOIN products p
+ORDER BY product;
+
+
