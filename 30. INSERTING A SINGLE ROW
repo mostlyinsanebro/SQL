@@ -1,0 +1,14 @@
+-- INSERT INTO TABLE
+INSERT INTO CUSTOMERS
+ VALUES(DEFAULT,
+		'Abhinav',
+        'Prajapati',
+        '2000-07-25',
+         '9306917152',
+         'plot no-13, Gobindgarh farm',
+         'Jagadhri',
+         'HR',
+         5000);
+         
+         
+Select * from customers;
