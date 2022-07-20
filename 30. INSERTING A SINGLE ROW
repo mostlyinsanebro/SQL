@@ -12,3 +12,16 @@ INSERT INTO CUSTOMERS
          
          
 Select * from customers;
+
+-- or we can also choose in which columns we want to add but we will have to add in not null columns and in which there is no default value
+insert into customers 
+	(first_name,
+	 last_name,
+	 address,
+	 city,
+	 state)
+values ('a',
+        'b',
+	'abcd',
+	'ynr',
+	'hr');
