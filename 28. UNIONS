@@ -1,0 +1,40 @@
+-- UNIONS
+
+SELECT order_id,
+	   order_date,
+       'Active' as Status
+FROM orders
+	where order_date>='2019-01-01'
+UNION
+SELECT order_id,
+	   order_date,
+       'Archived' as Status
+FROM orders
+	where order_date<'2019-01-01';
+    
+
+-- Exercise (106.png)
+SELECT 
+	customer_id,
+    first_name,
+    points,
+    'Gold' as type
+FROM customers
+where points>3000
+UNION
+SELECT 
+	customer_id,
+    first_name,
+    points,
+    'Silver' as type
+FROM customers
+where points BETWEEN 2000 AND 3000
+UNION 
+SELECT 
+	customer_id,
+    first_name,
+    points,
+    'Bronze' as type
+FROM customers
+where points<2000
+ORDER BY first_name;
