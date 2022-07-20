@@ -1,0 +1,15 @@
+-- INSERTING MULTIPLE ROWS
+INSERT INTO shippers(name)
+VALUES ('Shipper1'),
+	   ('Shipper2'),
+       ('Shipper3');
+       
+       
+SELECT * FROM shippers;
+
+-- Exercise (110.png)
+INSERT INTO products(name,quantity_in_stock,unit_price)
+       VALUES
+       ('cycle',20,75.34),
+       ('bike',8,60.57),
+       ('car',3,90.88);
