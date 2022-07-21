@@ -5,6 +5,7 @@ VALUES ('Shipper1'),
        ('Shipper3');
        
        
+       
 SELECT * FROM shippers;
 
 -- Exercise (110.png)
