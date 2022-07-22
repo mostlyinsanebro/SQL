@@ -15,6 +15,7 @@ JOIN orders o
 -- WAQ to join order_items table with products table 
 -- and display order_id,product_id,product_name,oi.quantity and oi.unit_price.
 
+
 SELECT order_id,oi.product_id,name as 'PRODUCT NAME',oi.quantity,oi.unit_price
 FROM order_items oi
 JOIN products p
