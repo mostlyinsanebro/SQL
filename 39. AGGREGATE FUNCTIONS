@@ -1,0 +1,45 @@
+-- Aggregate functions
+Select
+	Max(points),
+    Min(points),
+    Avg(points),
+    Sum(points),
+    count(points)
+from customers;
+
+
+-- We can also apply the aggregate functions to dates and strings
+-- in addition to numeric values.
+
+-- Aggregate functions operate only on non-null values.
+-- i.e. it considers only non null values by default.
+
+Select
+	count(*)
+from orders;
+
+-- The aggregate functions consider duplicate values, by default.
+
+
+-- EXERCISE 124.png and 125.png
+
+Select 'First half of 2019' as date_range,
+sum(invoice_total) as sum_sales,
+sum(payment_total) as total_payments,
+sum(invoice_total) - sum(payment_total) as what_we_expect
+from invoices
+where due_date between '2019-01-01' and '2019-06-30'
+union
+Select 'Second half of 2019' as date_range,
+sum(invoice_total) as sum_sales,
+sum(payment_total) as total_payments,
+sum(invoice_total) - sum(payment_total) as what_we_expect
+from invoices
+where due_date between '2019-07-01' and '2019-12-31'
+union
+Select 'Total payment of 2019' as date_range,
+sum(invoice_total) as sum_sales,
+sum(payment_total) as total_payments,
+sum(invoice_total) - sum(payment_total) as what_we_expect
+from invoices
+where due_date between '2019-01-01' and '2019-12-31';
