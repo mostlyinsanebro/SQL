@@ -1,0 +1,24 @@
+-- 35. Updating Multiple Rows
+
+Update invoices
+set payment_total=invoice_total*0.5,
+	payment_date=due_date
+where client_id=3;
+
+
+-- If you want to update all the rows of a table
+-- then, we need to leave the where clause only from the update statement
+-- and that will do it.
+
+Update invoices set
+payment_total=invoice_total*0.5,
+payment_date=due_date;
+
+
+-- Exercise
+-- Write an SQL query to give any customers born before
+-- 1990 50 extra points.
+
+Update customers
+set points=points+50
+where birth_date<'1990-01-01';
