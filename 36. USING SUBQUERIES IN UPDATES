@@ -1,0 +1,32 @@
+-- Using subqueries in updates.
+
+-- We can use subqueries with update statements as well.alter
+-- This allows to write better queries.
+
+-- Update the invoices where for 'MyWorks' client.
+Update invoices
+set payment_total=invoice_total*0.5,
+	payment_date=due_date
+where client_id in
+		(Select client_id from 
+		      clients
+		where name='Myworks');
+
+-- Update the invoices for clients living in states 'CA' and 'NY'
+Update invoices
+set payment_total=invoice_total*0.5,
+	payment_date=due_date
+where client_id in
+			(Select client_id from 
+			clients
+			where state in ('CA','NY'));
+
+-- EXERCISE
+-- Update the comments to 'GOLD CUSTOMERS'
+-- in orders table for the customers that have points > 3000.
+
+Update orders
+set comments = 'GOLD CUSTOMERS'
+where customer_id in
+                (Select customer_id 
+                 from customers where points>3000);
