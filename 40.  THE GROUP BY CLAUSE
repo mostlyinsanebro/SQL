@@ -1,0 +1,35 @@
+-- The group by clause
+
+-- Group the invoice_total from invoices
+-- by client_id where invoices are from the first half of 2019
+-- and order the result by sum in desc order.
+Select
+    client_id, 
+	sum(invoice_total) as total
+from invoices
+where invoice_date>='2019-07-01'
+group by client_id
+order by total;
+
+-- the order of clauses is
+-- select
+-- from
+-- where
+-- group by
+-- order by
+
+
+-- Group by multiple columns
+-- Exercise 
+
+-- Exercise 129.pnd and 130.png
+
+Select 
+ date,
+  name as payment_method,
+ sum(amount) as total_payments
+from payments p
+join payment_methods pm
+	on p.payment_method=pm.payment_method_id
+    group by date,name
+order by date;
