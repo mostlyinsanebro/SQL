@@ -1,0 +1,52 @@
+-- The Having Clause
+
+-- Having clause is basically used to filter the data after our rows
+-- have been grouped as per a column.
+-- Where clause is used to group the rows before the 
+-- data is grouped.
+
+
+-- Query to get the clients having the invoices_total>500
+Select
+    client_id,
+	sum(invoice_total) as total_invoices
+from invoices
+group by client_id
+having total_invoices>500
+
+
+-- The other difference between having and where clause is that
+-- in where clause, we can also select the column that is
+-- not there in the select clause
+-- but in having , we can not do that. We will have to select 
+-- a column from the select clause only..alter
+
+-- Write a query to get the total_invoices for each client
+-- and also put the condition of only getting
+-- the results where the invoice_total> 500 and count_of_invoices>5.
+
+Select
+    client_id,
+    sum(invoice_total) as total_of_invoices,
+    count(invoice_total) as count_of_invoices
+    from invoices
+group by client_id
+having total_of_invoices>500 and count_of_invoices>5
+
+
+-- Exercise 132.png and 133.png
+Select 
+		customer_id,
+        first_name,
+        last_name,
+		sum(quantity*unit_price) as money_spent
+from customers c
+join orders o
+	using (customer_id)
+join order_items oi
+	 using (order_id)
+where state='VA'
+group by customer_id
+having money_spent>100;
+
+
