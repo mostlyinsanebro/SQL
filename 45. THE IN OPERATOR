@@ -1,0 +1,16 @@
+-- THE IN OPERATOR
+
+-- Find the product that have never been ordered
+
+Select * from products
+where product_id not in (
+Select distinct product_id from order_items);
+
+
+-- Exercise 144.png and 145.png
+
+-- Find clients without invoices in sql_invoicing db
+
+Select * from clients
+where client_id not in (
+Select distinct client_id from invoices);
