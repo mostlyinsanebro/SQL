@@ -1,0 +1,19 @@
+-- 44. SUBQUERIES
+
+-- FIND THE PRODUCTS THAT ARE MORE EXPENSIVE THAN lETTUCE (#3)
+
+Select *
+from products
+where unit_price >
+			(Select unit_price
+            from products
+            where product_id=3);
+
+
+-- Exercise 141.png and 142.png
+
+Select * 
+from employees
+where salary>
+	(Select avg(salary)
+     from employees)
