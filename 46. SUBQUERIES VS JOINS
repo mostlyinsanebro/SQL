@@ -1,0 +1,54 @@
+-- 46. SUBQUERIES VS JOINS
+
+-- We can use joins inplace of subqueries sometimes.
+-- We should always choose between the two of them based
+-- on the readibility of the code.
+
+-- Find clients with no invoices
+Select * from clients
+where client_id not in 
+(Select distinct client_id
+from invoices); 
+
+
+-- or we can use joins for this purpose
+
+Select * 
+from clients c
+left join invoices i
+	using (client_id)
+where invoice_id is null;
+
+
+-- Exercise 147.png
+
+
+-- Using Joins
+Select distinct customer_id,
+       first_name,
+       last_name 
+from customers c
+join orders o
+	using (customer_id)
+join order_items oi
+	using (order_id)
+where product_id=3;
+
+
+
+
+-- Using subqueries
+Select 
+       customer_id, 
+	   first_name,
+       last_name 
+       from customers
+where customer_id in (
+Select customer_id from orders
+where order_id in (
+			Select order_id
+			from order_items
+			where product_id=3
+		)
+)
+
