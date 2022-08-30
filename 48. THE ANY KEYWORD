@@ -1,0 +1,24 @@
+-- 48. THE ANY KEYWORD
+
+-- IN == (=ANY)
+
+-- Select clients having 2 or more than 2 invoices.
+-- Method 1.
+Select * 
+from clients 
+where client_id in(
+				    Select client_id
+					from invoices
+					group by client_id
+					having count(*)>=2
+				  );
+                  
+-- Method 2.
+Select *
+from clients
+where client_id = ANY
+				(Select client_id
+                 from invoices
+                 group by client_id
+                 having count(*)>=2
+                );
