@@ -1,0 +1,24 @@
+-- 47. The All Keyword
+
+-- Select all the invoices which are greater than the invoices
+-- of client 3
+
+-- Method 1.
+Select * 
+from invoices where 
+invoice_total>
+       (
+		Select max(invoice_total) 
+		from invoices 
+		where client_id=3
+	    );
+   
+   
+-- Method 2.
+-- Use the all keyword
+Select * from invoices
+where invoice_total>ALL(
+					Select invoice_total 
+					from invoices
+					where client_id=3
+                    );
