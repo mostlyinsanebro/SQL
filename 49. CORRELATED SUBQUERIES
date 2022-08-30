@@ -1,0 +1,26 @@
+-- 49. CORRELATED SUBQUERIES
+
+-- For each employee in the sql_hr db,
+-- select the employess who have more than average
+-- salary in their office.
+Use sql_hr;
+
+Select * 
+from employees e
+where salary >
+		(Select AVG(salary)
+         from employees 
+         where office_id=e.office_id
+        );
+
+
+-- Exercise 160.png and 161.png
+-- Select the invoices that are larger than
+-- client's average invoice amount.
+Select *
+from invoices i
+where invoice_total>
+			( Select avg(invoice_total)
+              from invoices
+              where i.client_id=client_id
+            );
