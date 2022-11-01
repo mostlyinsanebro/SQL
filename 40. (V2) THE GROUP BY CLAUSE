@@ -1,0 +1,46 @@
+-- GROUP BY Clause
+
+-- Group by is used to group our data based on a column.
+
+Select
+    sum(invoice_total) as total_sales,
+    client_id
+from invoices
+group by client_id
+order by total_sales desc;
+
+-- We want to see the total_sales for each client
+-- but for second half of 2019
+Select 	
+	sum(invoice_total) as total_sales,
+    client_id
+from invoices 
+where invoice_date between '2019-07-01' and '2019-12-31'
+group by client_id
+order by total_sales desc;
+
+-- Correct order of the clauses
+-- select -> from -> where -> group by -> order by.
+
+
+-- We can also group group our data based on more than one column.
+-- We can also group by multiple columns.
+
+Select
+     sum(invoice_total) as total_payments,
+     state,
+     city
+	from invoices join clients
+    using(client_id)
+group by state,city;
+
+
+-- Exercise 129.png and 130.png
+select date,
+       sum(amount) as total_payments,
+       name as payment_method
+from payments p
+join payment_methods pm
+where payment_method=pm.payment_method_id
+group by date,payment_method
+order by date;
