@@ -1,0 +1,66 @@
+-- 39. AGGREGATE FUNCTIONS
+
+-- Aggregate functions are used to take a series of values
+-- and aggregate them to produce a single value.
+
+select MAX(invoice_total) as highest,
+       MIN(invoice_total) as lowest,
+       AVG(invoice_total) as average,
+       SUM(invoice_total) as total
+from invoices;
+
+-- We can also apply aggregate functions on dates and strings.
+
+Select MAX(payment_date) as latest_date
+       from invoices;
+       
+-- The aggregate functions take into account only the non-null values.
+-- They do not consider null values at all, keep that in mind.
+
+-- In order to get the total records from a table, whether null or
+-- not null, we can do count(*)
+
+Select count(payment_date) as count_of_payment,
+       count(*) as total_records
+	   from invoices;
+       
+-- We can also write expressions in the aggregate functions like:-
+Select sum(invoice_total) as total,
+       sum(invoice_total*1.1) as more_than_total
+       from invoices;
+
+-- Example       
+select MAX(invoice_total) as highest,
+       MIN(invoice_total) as lowest,
+       AVG(invoice_total) as average,
+       SUM(invoice_total) as total
+from invoices
+where invoice_date>'2019-01-01';
+
+-- by default, all aggregate functions take duplicate values,
+-- if we want them not to , then use distinct.
+
+select count(distinct client_id) from invoices;
+
+-- Exercise 124.png and 125.png
+
+Select 'First Half of 2019' as date_range,
+       sum(invoice_total) as total_sales,
+       sum(payment_total) as total_payments,
+      sum(invoice_total-payment_total) as what_we_expect
+from invoices
+where payment_date between '2019-01-01' and '2019-06-30'
+UNION
+Select 'Second Half of 2019' as date_range,
+       sum(invoice_total) as total_sales,
+       sum(payment_total) as total_payments,
+       sum(invoice_total-payment_total) as what_we_expect
+from invoices
+where payment_date between '2019-07-01' and '2019-12-31'
+UNION
+Select 'Total' as date_range,
+       sum(invoice_total) as total_sales,
+       sum(payment_total) as total_payments,
+       sum(invoice_total-payment_total) as what_we_expect
+from invoices
+where payment_date between '2019-01-01' and '2019-12-31';
