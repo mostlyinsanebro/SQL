@@ -1,0 +1,38 @@
+-- 42. The ROLLUP Operator
+-- 42.The Rollup Operator (THIS METHOD IS PRESENT IN MYSQL ONLY)
+
+
+-- With rollup is basically used to summarize the data in a column
+
+Select client_id,
+       sum(invoice_total) as total_sales
+from invoices
+group by client_id with rollup;
+
+
+-- When you group by multiple columns
+-- and you use with rollup, then it 
+-- summarizes the data according to each group
+-- as well as the entire rtesult set.
+
+Select 
+    state,
+    city,
+    sum(invoice_total) as total_sales
+from invoices i 
+join clients c
+	 using (client_id)
+group by state,city with rollup;
+     
+
+-- Exercise 136.png and 138.png
+
+Select 
+      pm.name as payment_method,
+      sum(amount) as total
+from payments p
+join payment_methods pm
+on p.payment_method=pm.payment_method_id
+group by pm.name with rollup;
+
+
