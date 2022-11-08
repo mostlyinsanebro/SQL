@@ -1,0 +1,17 @@
+-- 44. SUBQUERIES
+
+-- Find products that re mopre expensive than lettuce(id=3)
+
+Select *
+ from products 
+ where unit_price > ( Select unit_price
+			    from products 
+                      where product_id=3); -- lettuce
+
+
+-- Exercise  (142.png and 143.png)
+
+Select * 
+    from EMPLOYEES 
+    where salary > ( Select avg(salary)
+					  from employees); 
