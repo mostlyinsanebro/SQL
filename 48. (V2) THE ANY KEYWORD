@@ -1,0 +1,25 @@
+-- 48. IN Operator
+
+-- IN == (=ANY)
+
+-- Select clients with atleast 2 invoices
+Select * 
+from clients
+where client_id in (
+		Select client_id
+		from invoices
+		group by client_id
+		having count(*)>=2
+);
+
+
+-- Using = ANY
+Select * 
+from clients
+where client_id = ANY (
+		Select client_id
+		from invoices
+		group by client_id
+		having count(*)>=2
+);
+
