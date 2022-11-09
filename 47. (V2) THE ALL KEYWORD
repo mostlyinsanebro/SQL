@@ -1,0 +1,23 @@
+-- 47. The All Keyword
+
+--Select invoices larger than all invoices of client 3.
+
+Select * 
+from invoices
+where invoice_total > (
+	Select max(invoice_total)
+	from invoices
+	where client_id=3
+);
+
+
+-- Using ALL Keyword.
+-- The ALL Keyword is used whenever our subquery returns a list of values.
+
+Select *
+from invoices
+where invoice_total > ALL(
+		select invoice_total
+		from invoices
+		where client_id=3
+);
