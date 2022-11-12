@@ -1,0 +1,33 @@
+-- 51. Subqueries in the Select Clause
+
+-- We can use subqueries in the select clause as well.
+
+-- Exercise 1 (163.png and 164.png)
+
+Select invoice_id,
+       invoice_total,
+       (Select avg(invoice_total) from invoices) as invoice_average,
+       (invoice_total-(Select avg(invoice_total) from invoices)) as difference
+from invoices;
+
+OR
+
+Select invoice_id,
+       invoice_total,
+       (Select avg(invoice_total) from invoices) as invoice_average,
+       (invoice_total-(Select invoice_average) as difference
+from invoices;
+
+
+-- * Imp*
+-- Exercise 2 (166.png and 170.png)
+
+
+Select distinct client_id,
+                name,
+                (select sum(invoice_total) 
+                 from invoices 
+                 where client_id=c.client_id) as total_sales,
+                 (select avg(invoice_total) from invoices) as average,
+                 (select total_sales - average) as difference 
+from clients c;
