@@ -1,0 +1,32 @@
+-- 58. The IFNULL and COALESCE Function
+
+-- In the IFNULL() function , if the first argument returns null,
+-- then it will be replaced by the second parameter.
+
+-- IFNULL('argument1','User defined value');
+
+
+Select order_id,
+      IFNULL(shipper_id,'Not Assigned') as shipper_id
+from orders;
+
+
+
+-- COALESCE() Function:-
+-- This function will return the first non-null value
+-- from the list of arguments passed and if everyone of 
+-- them is null, then it will return the user-defined result.
+-- COALESCE(column1,column2,'user defined value');
+
+Select order_id,
+       COALESCE(shipper_id,comments,'Not assigned')
+from orders;
+
+
+
+-- EXERCISE (346.png and 347.png)
+
+Select CONCAT(first_name,' ',last_name) as customer,
+       IFNULL(phone,'unknown') as phone
+from customers;
+
