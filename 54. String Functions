@@ -1,0 +1,106 @@
+-- 54. String Functions
+
+1. Length() Function:-
+
+-- Select length('sky');
+-- Result :- 3
+
+
+2. Upper() Function:-
+
+-- Converts any string passed to uppercase letters.
+
+-- Select Upper('aBHINAv');
+-- Result:- ABHINAV
+
+
+3. Lower() Function:-
+
+-- Converts any passed string to lowercase letters.
+
+-- Select lower('ABHInAV');
+-- Result:- ABHINAV
+
+
+-- The following 3 functions are used to trim or remove the unnecessary characters
+-- from a string.
+
+4. LTRIM() Function:-
+
+-- This function removes the white spaces before the string.
+
+-- Select LTRIM('    Sky').
+-- Result:-Sky.
+
+
+5.RTRIM() Function:-
+
+-- removes any trailing white spaces.
+
+-- Select RTRIM('Sky    ');
+-- Result:-Sky.
+
+
+6. TRIM() Function:-
+
+-- Removes any leading or trailing white spaces.
+
+-- Select TRIM('   Sky   ');
+-- Result:-Sky.
+
+
+7. Left() Function:-
+
+-- This selects n characters from left of the string.
+-- Left('Abhinav',n).
+
+-- Select Left('Abhinav',3); -- here n=3.
+-- Result:- Abh.
+
+
+8. Right() Function:-
+
+-- This selects n characters from the right of the string.
+-- Right('Abhinav',n).
+
+-- Select Right('Abhinav',5); -- here n=5.
+-- Result:-bhinav.
+
+
+9.Substring() Function:-
+
+-- This selects the n characters from a string starting from position a.
+-- Substring('Abhinav',a,n);
+
+-- Select Substring('Abhinav',2,5);
+-- Result :-bhina.
+
+
+
+10. Locate() Function:-
+
+-- This function is used to locate the first occurence of a charcter or sequence of characters.
+
+-- Select Locate('n','Abhinav');              Select Locate('av','Abhinav');
+-- Result:-5.                                 Result:-6.
+
+
+11. Replace() Function:-
+
+-- This function is used to replace a with b in x.
+-- Replace(x,a,b);
+
+-- Select Replace('Kindergarten','garten','garden');
+-- Result:-Kindergarden.
+
+
+12. Concat() Function:-
+
+-- This function is used to combine two strings.
+
+-- Select Concat('Abhinav',' Prajapati');
+-- Result:-Abhinav Prajapati.
+
+
+-- Select concat(first_name,' ',last_name) as full_name
+-- from customers;
