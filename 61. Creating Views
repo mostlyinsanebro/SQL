@@ -1,0 +1,53 @@
+-- 61. Creating Views
+
+-- If we want the result of a complex query again and again
+-- then , instaed of writing that query again and again, we can 
+-- create a view out of it. Which will give us the ready result of that complex query.
+
+
+-- The views does not actually store any data
+-- They just provide us a view to the underlying tables.
+
+
+-- We can put conditions on a view, join it with other tables
+-- and so on.
+
+
+CREATE VIEW sales_by_client AS
+Select 
+    c.client_id,
+    name,
+    sum(invoice_total) as total_sales
+from invoices i
+join clients c
+using (client_id)
+group by client_id
+    
+
+
+-- We can put conditions on a view and do joins as well.
+select * from sales_by_client
+where total_sales>500;
+
+
+
+
+-- EXERCISE (353.png and 355.png)
+
+
+CREATE VIEW clients_balance as
+Select 
+      client_id,
+      name,
+      SUM(invoice_total) - SUM(payment_total) as balance
+from clients c
+join invoices i
+ USING(client_id)
+group by client_id;
+
+
+select * from clients_balance;
+
+
+
+    
