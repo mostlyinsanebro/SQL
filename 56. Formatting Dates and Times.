@@ -1,0 +1,21 @@
+-- 56. Formatting Dates and Times
+
+-- In Mysql, the date is in format '2019-01-01', which is not that 
+-- user friendly.So, there are some functions to represent dates 
+-- in a more user friendly way.
+
+1. DATE_FORMAT():-
+
+-- Used to format dates as per our demand.
+-- Takes two parameters, first is tha date and second is the format.
+
+-- Select DATE_FORMAT(NOW(),'%D %M %Y');
+-- Result:-12th November 2022.
+
+
+2. TIME_FORMAT():-
+
+-- Used to represent time in a specific format.
+
+-- Select TIME_FORMAT(NOW(), '%h:%i:%s');
+-- Result:-07:38:55.
