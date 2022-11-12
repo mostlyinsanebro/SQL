@@ -1,0 +1,34 @@
+-- 57. Calculating Dates and Times
+
+-- We are going to look at the functions for calculating the date and 
+-- times like add or subtract two dates etc.
+
+1. DATE_ADD() Function:-
+-- Add some quantity i.e a day or a yaer to the date.
+
+-- Select DATE_ADD(NOW(), INTERVAL 1 DAY);
+-- Result:- Tomorrow's date with the same time.
+
+
+2. DATE_SUB() Function:-
+-- Subtract some quantity i.e a day or a yaer to the date.
+
+-- Select DATE_SUB(NOW(), INTERVAL 1 DAY);
+-- Result:- Yesterday's date with the same time.
+
+
+3. DATEDIFF() Function:-
+-- Calculate the difference between two dates.
+
+-- Select DATEDIFF('2019-01-05','2019-01-01') as difference;
+-- Result:-4.
+
+
+4. Calculate the difference of seconds between two times
+
+-- We can use TIME_TO_SEC() Function for it.
+-- This function gives the time elapsed since midnight and we can use that to calculate the 
+-- difference between two times.
+
+-- Select TIME_TO_SEC('09:02') - TIME_TO_SEC('09:00') AS TIME_DIFF;
+-- result:- 120.
