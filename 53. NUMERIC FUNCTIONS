@@ -1,0 +1,45 @@
+-- 53. NUMERIC FUNCTIONS
+
+-- Sql has a lot of built in functions in order to deal with data.
+
+
+1. ROUND() Function
+
+-- This function will round off the data passed to it.
+-- It will round the data off to the precision of the second argument which is optional.
+
+--Select round(5.4994,2);
+-- Result :- 5.50
+
+2. TRUNCATE() Function
+
+-- It is used for removing the digits from a number after the precision points
+
+-- Select TRUNCATE(2.95434,2);
+-- Result = 2.95
+
+
+3. CEILING() Function and FLOOR() Function
+
+-- Select Ceiling(5.2);  -- returns the smallest integer which is just greater than the given value
+-- Result :- 6
+
+-- Select Floor(5.7);    -- return the largest digit which is just smaller than the given value.
+-- Result :- 5
+
+4.ABS() Function 
+-- Always return an absolute value i.e. +value as result, whether we pass +ve or -ve.
+
+-- Select ABS(5.2);
+-- Result :- 5.2
+
+-- Select ABS(-5.2);
+-- Result:- 5.2
+
+
+5. RAND() Function
+
+-- Produces a random floating point number between 0 and 1.
+--SELECT RAND();
+
+-- Result:- 0.123456   or Result:- 0.456789
