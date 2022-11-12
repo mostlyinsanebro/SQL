@@ -1,0 +1,45 @@
+-- 59. The IF Function
+
+-- Select orders from orders table. Print 'Active' in
+-- category column if the orders are placed in 2019,
+-- else print 'Archived'.
+
+
+Select order_id,
+       order_date,
+       IF(YEAR(order_date)= YEAR('2019-01-01'),'Active', 'Archived') as category
+from orders;
+
+
+-- IF(expression,arg1,arg2)
+-- If the expression is true, then IF function return arg1
+-- else it return arg2.
+
+
+-- EXERCISE (349.png and 350.png)
+
+Select p.product_id,
+       name,
+       count(order_id) as orders,
+       IF(count(order_id)>1,'Many Times','Once') as Frequency
+from products p
+join order_items oi
+on p.product_id=oi.product_id
+group by product_id,name;
+
+
+
+OR
+
+
+select  
+      product_id,
+      name,
+      (select count(order_id)
+	   from order_items oi
+       where oi.product_id=p.product_id) as count_of_products,
+       IF((select count(order_id)
+	   from order_items oi
+       where oi.product_id=p.product_id)>1,'Many','One') as number
+from products p;
+
