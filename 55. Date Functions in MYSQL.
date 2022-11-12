@@ -1,0 +1,54 @@
+-- 55. Date Functions in MYSQL:-
+
+1. NOW() Function:-
+-- used to get the current date and time.
+
+-- Select NOW().
+-- Result:-2022-11-12 18:59:16.
+
+
+2. CURDATE() Function:-
+-- Used to get the current date without the time component.
+
+-- Select CURDATE();
+-- Result:-2022-11-12.
+
+
+3. CURTIME() Function:-
+-- Used to get the current time without the date component.
+
+---- Select CURTIME();
+-- Result:-19:02:14.
+
+
+NOTE:- We have some functions which are used to get
+-- the specific information from the now function.
+
+
+4. YEAR(NOW()), MONTH(NOW()),DAY(NOW()),HOUR(NOW()),MINUTE(NOW()),SECOND(NOW()) Function:-
+-- These all functions are used to get specific information from 
+-- the now function like month, day, hour etc.
+
+
+5.DAYNAME(NOW()) and MONTHNAME(NOW()) Function:-
+-- These return strings as result , current month name or current day name.
+
+
+6.Extract() Function:-
+-- This function is used to extract a piece of information from some function like Year, Month, Day, Hour, Minute, Second.
+
+
+-- Select Extract(Month from Now());
+-- Result:-11.
+
+
+
+
+
+-- EXERCISE:-
+-- Get the orders placed in the current year. Consider current year=2019.
+
+-- Select *
+-- from orders
+-- where YEAR(order_date) = YEAR(NOW());
+
