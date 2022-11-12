@@ -1,0 +1,36 @@
+-- 60. The CASE Operator
+
+-- When we have multiple conditions to cover, we use case Operator.
+-- If only covers one.
+
+
+Select order_id,
+       CASE
+           WHEN YEAR(order_date)  = YEAR('2019-01-01') THEN 'Active'
+           WHEN YEAR(order_date)  = YEAR('2019-01-01')-1 THEN 'Last Year'
+           WHEN YEAR(order_date)  < YEAR('2019-01-01')-1 THEN  'Archived'
+           ELSE 'Future'
+		END as category
+from orders;
+
+
+
+-- CASE 
+--    WHEN exp1 THEN ...
+--    WHEN exp2 TEHN ...
+--    WHEN exp3 THEN ...
+--    ELSE ...
+-- END as something
+
+
+-- EXERCISE (351.png and 352.png)
+
+select 
+     CONCAT(first_name,' ',last_name) as customer,
+     points,
+     CASE 
+       WHEN points>3000 THEN 'Gold'
+       WHEN points >=2000 AND points <=3000 THEN 'Silver'
+       ELSE 'Bronze'
+	 END as category
+from customers;
