@@ -1,0 +1,64 @@
+-- 50. The Exists Operator
+
+-- Select clients that have an invoice
+
+-- We can use IN operator or a join as well.
+
+
+-- Using IN Operator
+
+Select * 
+from clients
+where client_id in (
+	Select client_id 
+    from invoices
+);
+
+
+-- Using Inner Join
+
+Select distinct i.client_id,
+                name
+from clients c
+join invoices i
+on c.client_id=i.client_id;
+
+
+-- Using EXISTS Operator
+
+Select *
+from clients c
+where EXISTS (
+      Select client_id 
+      from invoices
+      where client_id=c.client_id
+);
+
+
+-- Take away from this lesson is that,
+-- if the subqury that we wrote after the IN Operator,
+-- produces a large result set, it is more efficient to use the exists operator
+-- beacuse when we use the exists operator , the subquery does not actually return 
+-- a result set to the outer query. It will return the value TRUE to the outer query as
+-- soon as it finds a row matching the condition which is faster.
+
+
+-- EXERCISE 342.png and 343.png
+
+-- Find the products that have never been ordered.
+-- Not Exists is the opposite of Exists Operator.
+
+-- NOTE:- 
+-- In this case we can use the IN Operator, but the subquery
+-- for IN will return a vary larger result set, which will have a poor performance
+-- if we consider tha case of websites like Amazon. For this case, we should use the 
+-- EXISTS Operator, so as to improve the performance manyfolds.
+
+
+Select *
+from products p
+where NOT EXISTS (
+	  Select *
+      from order_items
+      where product_id=p.product_id
+);
