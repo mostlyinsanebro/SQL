@@ -1,0 +1,25 @@
+-- 52. Subqueries in the From Clause
+
+-- We can also use subqueries in the from cluase
+-- of a select statement in order to select the 
+-- result of that query and then can filter data on it
+-- or join the data of that subquery with some other data.
+
+
+
+Select * 
+from (
+		Select distinct client_id,
+						name,
+						(select sum(invoice_total) 
+						 from invoices 
+						 where client_id=c.client_id) as total_sales,
+						 (select avg(invoice_total) from invoices) as average,
+						 (select total_sales - average) as difference 
+		from clients c
+) as sales_summary
+where total_sales is not null;
+
+
+
+-- This can also be achieved with the help of views which we will study later.
