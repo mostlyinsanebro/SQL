@@ -1,0 +1,14 @@
+-- 62. Altering or Dropping Views
+
+-- We can alter our views by using the below query.
+-- Create or Replace VIEW sales_by_order AS
+
+CREATE OR REPLACE VIEW sales_by_client AS
+select c.client_id,
+       name,
+       sum(invoice_total) as total_sales
+from invoices i
+join clients c
+on i.client_id=c.client_id
+group by client_id
+ORDER BY client_id;
