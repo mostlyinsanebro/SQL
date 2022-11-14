@@ -1,0 +1,41 @@
+-- 63. Updatable Views
+
+-- We can also our views in insert, update and delete statements
+-- but only under the condition that they do not have :
+
+-- distinct 
+-- aggregate functions
+-- group by/ having
+-- union 
+in them.
+
+
+-- If we do not have the above things in our view, then we call it as an updatable view,
+-- which means that we can update data through it.
+
+
+CREATE OR REPLACE VIEW client_balance AS
+Select invoice_id,
+       number,
+       client_id,
+       invoice_total,
+       payment_total,
+       (invoice_total-payment_total) AS balance,
+       invoice_date,
+       due_date,
+       payment_date
+from invoices
+WHERE (invoice_total-payment_total)>60;
+--This is an updatable view.
+
+
+-- Deleting a row from updatable view.
+Delete from client_balance
+where invoice_id=3;
+
+
+
+-- Updating a row from updatable view.
+UPDATE client_balance
+set due_date=DATE_ADD(due_date, INTERVAL 2 DAY)
+where invoice_id=2;
