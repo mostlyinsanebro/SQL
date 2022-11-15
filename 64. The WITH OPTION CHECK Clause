@@ -1,0 +1,36 @@
+-- 64. The WITH Option Check Clause
+
+-- Sometimes, updating a row in a view may result in the deletion of that
+-- row from the view. If you do not want an update statement to delete a row
+-- from the view, then you can use the 'with check option' while creating the view.
+-- It would give error anytime the update or delete statements are executed
+-- which would result in the removal of some row.
+
+CREATE OR REPLACE VIEW client_balance AS
+    SELECT 
+        invoices.invoice_id AS invoice_id,
+        invoices.number AS number,
+        invoices.client_id AS client_id,
+        invoices.invoice_total AS invoice_total,
+        invoices.payment_total AS payment_total,
+        (invoices.invoice_total - invoices.payment_total) AS balance,
+        invoices.invoice_date AS invoice_date,
+        invoices.due_date AS due_date,
+        invoices.payment_date AS payment_date
+    FROM
+        invoices
+    WHERE
+        ((invoices.invoice_total - invoices.payment_total) > 60)
+        WITH CHECK OPTION;
+
+
+
+-- when we try to execute the following statement, sql will give error after applying the check option.
+
+
+update client_balance
+set payment_total=invoice_total
+where invoice_id=2;
+
+
+-- if we execute the above statement w/o 'WITH CHECK OPTION', it will allow deletion of this row from the view.
