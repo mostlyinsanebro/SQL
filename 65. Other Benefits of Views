@@ -1,0 +1,16 @@
+-- 65. Other Benefits of Views
+
+-- The benifits of using views are:-
+
+1. They help us to simplify our queries.
+
+2.Reduce the impact of changes - This means that if our table on which our several queries are written undergo a change such as 
+deletion of a column etc, then it would vastly impact all the queries written on it.
+
+But if write a view which is similar to our table and then write queries based on that view, 
+then even if our table gets changed, we can always make a slight change to our view
+and we will not have to change our queries. This saves a lot of time and effort.
+
+In short, views provide data abstraction.
+
+3. We can also use to reduce the access to the data in the underlying table.
