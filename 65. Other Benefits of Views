@@ -13,4 +13,4 @@ and we will not have to change our queries. This saves a lot of time and effort.
 
 In short, views provide data abstraction.
 
-3. We can also use to reduce the access to the data in the underlying table.
+3. We can also use views to reduce the access to the data in the underlying table.
