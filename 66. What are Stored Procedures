@@ -1,0 +1,23 @@
+-- 66. What are Stored Procedures.
+
+-- In our application codes where the code is written in Java or C#,
+-- we can not write the sql code in the same place because these codes 
+-- require some compilation and if we make some change to the sql code,
+-- then we will have to compile the code again and again. To avoid this, 
+-- we store our sql code in a stored procedure and call it from there. In
+-- this way, we will not have to compile the code again and again , whenever
+-- changes are to be made in the sql code.
+
+
+-- A stored procedure is basically a block of sql code.
+-- In our application, we simply call this procedure to
+-- get or save the data.
+
+-- Stored Procedures have a bunch of advantages
+
+1. They are very useful in storing and organizing SQL code.
+
+2. They provide data security.
+
+3. They also help in faster execution ,as some procedures are used to store
+  optimized code. 
