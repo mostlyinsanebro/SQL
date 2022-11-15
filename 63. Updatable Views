@@ -1,6 +1,6 @@
 -- 63. Updatable Views
 
--- We can also our views in insert, update and delete statements
+-- We can also do insert, update and delete statements in our views
 -- but only under the condition that they do not have :
 
 -- distinct 
