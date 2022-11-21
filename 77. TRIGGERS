@@ -1,0 +1,51 @@
+-- 77. Triggers
+
+-- A trigger is a block of code which automatically gets executed
+-- before or after an insert, update or delete statement.
+-- Triggers are used to maintain data consistency.
+
+
+
+-- You have to write a trigger on payment table
+-- that on inserting a record in payment table
+-- i.e. on making a payment, the payment_total
+-- in invoices table gets increased.
+
+DELIMITER $$
+CREATE TRIGGER payments_after_insert
+     AFTER INSERT ON payments
+     FOR EACH ROW
+BEGIN
+     UPDATE invoices
+     SET payment_total=payment_total+NEW.amount
+     where invoice_id=NEW.invoice_id;
+END $$
+
+
+insert into payments values 
+           (DEFAULT,
+            3,
+            5,
+            '2022-11-21',
+             10,
+             1);
+
+
+
+-- Create a trigger that gets fired when 
+-- we delete a payment.
+
+DELIMITER $$
+CREATE TRIGGER payments_after_delete
+      AFTER DELETE ON payments
+      FOR EACH ROW
+BEGIN 
+     UPDATE invoices
+     set payment_total=payment_total-OLD.amount
+     where invoice_id=OLD.invoice_id;
+END;
+
+
+
+delete from payments
+  where payment_id=9;
