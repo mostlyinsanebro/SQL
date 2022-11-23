@@ -1,0 +1,17 @@
+-- 78. Viewing Triggers
+
+-- In mysql workbench, there is no way to see triggers
+-- we can only see tables, stored procedures, functions and views.
+
+-- Thus, to see triggers we will have to use "Show Triggers" statement
+-- to view all triggers in the current database.
+
+-- for viwing a trigger related to a specific table, 
+-- we can use 
+ Show triggers like 'payments%';
+
+Here is the convention for naming the triggers,
+
+table_name_before-or-after_action.
+
+e.x:- payments_after_insert
