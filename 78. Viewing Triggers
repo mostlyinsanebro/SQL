@@ -15,3 +15,10 @@ Here is the convention for naming the triggers,
 table_name_before-or-after_action.
 
 e.x:- payments_after_insert
+
+
+-- We can also use the like statement to search for triggers
+-- based on a specific condition like this.
+
+
+Show triggers where event like 'INSERT%';
