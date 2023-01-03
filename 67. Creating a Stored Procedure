@@ -1,0 +1,39 @@
+--67. Creating a Stored Procedure
+
+-- We can create a stored procedure by the following syntax.
+CREATE PROCEDURE name()
+BEGIN 
+    PROCEDURE BODY;
+END
+
+-- In MySQL, we will also have to change the current delimeter so that this block of code is treated as one and not delimited by ;
+
+-- Here is how we do it,
+
+DELIMITER $$
+
+CREATE PROCEDURE get_clients()
+BEGIN
+   Select * from clients;
+END$$
+
+DELIMITER ;
+-- Change the delimeter to ; by using the above line.
+
+
+-- The stored procedure can also be called in sql like,
+CALL get_clients();
+
+
+
+
+-- EXERCISE (356.png)
+DELIMITER $$
+CREATE PROCEDURE get_invoices_with_balance()
+BEGIN 
+  Select * from invoices where invoice_total-payment_total>0;
+END$$
+DELIMITER ;
+
+CALL get_invoices_with_balance();
+
