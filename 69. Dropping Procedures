@@ -1,0 +1,17 @@
+--69. Dropping Procedures
+
+-- Use the drop procedure statement
+Drop procedure proc_name;
+
+Drop procedure IF EXISTS get_clients;
+
+-- The following is the default template for creatring a stored procedure.
+DROP PROCEDURE IF EXISTS get_clients;
+
+DELIMITER $$
+CREATE PROCEDURE get_clients()
+BEGIN
+   Select * from clients;
+END $$
+
+DELIMITER ;
