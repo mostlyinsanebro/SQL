@@ -1,0 +1,15 @@
+-- 66. What are Stored Procedures.
+
+Let us take an example of an application. Suppose we have writtem our application code in Java and we are also 
+using SQL to get the data in that application. If we write the SQL queries with the application code then we may face problems in the future.
+Because the application code needs to be compiled and if we make changes to sql queries written in the application code, we will have
+to do the compilation again and again. For that purpose, we use the stored procedures.
+
+In stored procedures, we just write all the sql code in the stored procedures and call it in the application code wherever it is needed.
+
+Following are thye advantages of Stored Procesdures:-
+1. Store and organize SQL.
+
+2. Faster execution
+
+3. Data Security
