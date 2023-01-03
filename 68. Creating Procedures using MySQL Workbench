@@ -1,0 +1,13 @@
+-- 68. Creating Stored Procedure using MySQL Workbench
+
+-- We can also create a stored procedure through MySQL Workbench.
+
+-- For that, right click on the stored procedures column on the left hand side and then write the sql query.
+-- MySQL Workbench will take care of everything else.
+
+ 
+-- Following is the code given by MySQL Workbench
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_payments`()
+BEGIN
+     Select * from payments;
+END
