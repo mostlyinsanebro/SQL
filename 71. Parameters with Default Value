@@ -1,0 +1,109 @@
+-- 71. Parameters with Default Value
+
+-- We can also set a procedure such that the procedure fetches the
+-- result for a default value if we do not pass anything to it in the parameters.
+
+-- Code for setting CA as default to state...
+
+Drop procedure if exists get_clients_by_state;
+
+Delimiter $$
+Create procedure get_clients_by_state
+(
+ state char(2)
+)
+Begin
+   IF STATE IS NULL THEN
+      set state = 'CA';
+	END IF;
+    
+    Select * from clients c
+    where c.state = state;
+End $$
+
+Delimiter ;
+
+
+Call get_clients_by_state(null);
+
+
+-- Now, if we want to get the clients for all the states if null is passed
+-- as parameter and we want client for a particular state if that state is passed as a 
+-- parameter, then we can use the following query for it.
+
+DROP PROCEDURE IF EXISTS get_clients_by_state;
+
+DELIMITER $$
+CREATE PROCEDURE get_clients_by_state
+(
+   STATE char(2)
+)
+BEGIN
+     IF STATE IS NULL THEN
+         Select * from clients;
+	 ELSE 
+       Select * from clients c
+	   where c.state = state;
+	 END IF;
+END $$
+
+DELIMITER ;
+
+Call get_clients_by_state('NY');
+-- returns only NY clients.
+
+Call get_clients_by_state(NULL);
+-- returns clients from all states.
+
+
+
+-- or we can also use the following query which is shorter and more crisp.
+
+DROP PROCEDURE IF EXISTS get_clients_by_state;
+
+DELIMITER $$
+CREATE PROCEDURE get_clients_by_state
+(
+   STATE char(2)
+)
+BEGIN
+       Select * from clients c
+	   where c.state = IFNULL(state, c.state);
+-- The ifnull works like this, if state!=null, then ifnull will return that value
+-- and if state == null, then ifnull will return c.state which will basically print
+-- clients of all states.
+END $$
+
+DELIMITER ;
+
+Call get_clients_by_state('NY');
+-- returns only NY clients.
+
+Call get_clients_by_state(NULL);
+-- returns clients from all states.
+
+
+-- EXERCISE (360.png and 361.png)
+
+DROP PROCEDURE IF EXISTS get_payments;
+
+DELIMITER $$
+CREATE PROCEDURE get_payments
+(
+  client_id INT,
+  payment_method_id TINYINT
+)
+BEGIN
+   Select * from payments p
+   where p.client_id = ifnull(client_id,p.client_id) and
+ p.payment_method = ifnull(payment_method_id,p.payment_method);
+   
+END $$
+
+DELIMITER ;
+
+CALL get_payments(null,null);
+ 
+CALL get_payments(5,null);
+
+CALL get_payments(null,2);
