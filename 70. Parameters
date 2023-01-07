@@ -1,0 +1,40 @@
+-- 70. Parameters
+
+-- We have learnt how to create and drop stored procedures.
+-- Now, we are going to learn how to use parameters with stored procedures.
+-- Typically, parameters are used to pass values to a stored procedure but they 
+-- can also be used to send values back to the calling function of the stored procedure.
+
+DROP PROCEDURE IF EXISTS get_clients_by_state;
+
+DELIMITER $$
+CREATE PROCEDURE get_clients_by_state
+(
+    state CHAR(2)
+)
+BEGIN
+   Select * from clients c
+   where c.state = state;
+END $$
+
+DELIMITER ;
+
+
+CALL get_clients_by_state('CA');
+
+-- Exercise (358.png and 359.png)
+DROP PROCEDURE IF EXISTS get_invoices_by_clients;
+
+DELIMITER $$
+CREATE PROCEDURE get_invoices_by_clients
+(
+client_id INT
+)
+BEGIN
+  Select * from invoices i
+  where i.client_id = client_id;
+  END $$
+
+DELIMITER ;
+
+CALL get_invoices_by_clients(1);
