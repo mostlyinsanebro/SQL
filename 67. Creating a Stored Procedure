@@ -6,7 +6,7 @@ BEGIN
     PROCEDURE BODY;
 END
 
--- In MySQL, we will also have to change the current delimeter so that this block of code is treated as one and not delimited by ;
+-- In MySQL, we will also have to change the current delimiter so that this block of code is treated as one and not delimited by ;
 
 -- Here is how we do it,
 
