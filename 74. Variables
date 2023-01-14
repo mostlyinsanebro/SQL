@@ -1,0 +1,45 @@
+-- 74. Variables
+
+-- We have several types of variables used with procedures in sql.
+
+-- Type 1). Session or user variables -> These are the variables that are used at places like output parameters.
+
+-- ex -> Set @variable = 0;
+
+-- These variables are valid as long as user is logged into the sessions.When user loggs off from the session, these variable 
+-- go out of memory.
+
+-- Type 2). These are the variables that are defined in the stored procedures or fuctions.Their validity is also limited to the 
+-- stored procedures.
+-- These variables do not remain valid during the entire user session. They are valid only till the procedure of function
+-- is in execution.
+
+-- Often , these variables are used to perform calculations in the stored procedures.
+
+-- risk_factor = invoices_total / invoices_count*5;
+
+DROP PROCEDURE IF EXISTS get_risk_factor;
+
+DELIMITER $$
+CREATE PROCEDURE get_risk_factor()
+BEGIN 
+  -- Use the declare statement to declare variables in stored procedures or fuctions
+  -- like , DECLARE var data_type Default_keyword Default_Value
+  DECLARE risk_factor DECIMAL(9,2) DEFAULT 0;
+  DECLARE invoices_count INT;
+  DECLARE invoices_total DECIMAL(9,2);
+  
+  SELECT COUNT(*),SUM(invoice_total)
+  INTO invoices_count,invoices_total
+  FROM invoices;
+  
+  SET risk_factor = invoices_total / invoices_count * 5;
+  
+  Select risk_factor;
+  
+-- The variables (risk_factor ,invoices_count,invoices_total) are valid only till this procedure is in execution.
+  
+END $$
+DELIMITER ;
+
+-- As soon as we finish executing the stored procedures, their local variables go out of memory.
