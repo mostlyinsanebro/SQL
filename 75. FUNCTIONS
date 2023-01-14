@@ -1,0 +1,56 @@
+-- 75. Functions
+
+-- We will now create our own functions in SQL.
+
+-- Functions and stored procedures are similar but
+-- the main difference between between procedures and fuctions is that a function can
+-- return only a single value while procedures can return result sets.
+
+-- A function always has to retun someting which is not the case with stored procedures.
+
+-- Syntax for writing fucntion. 
+DROP FUNCTION IF EXISTS function_name;
+
+CREATE FUNCTION function_name()
+returns data_type
+ARGUMENTS -- atleast one
+BEGIN
+  /*Sql code*/
+END
+
+
+
+DROP FUNCTION IF EXISTS get_risk_factor_by_client;
+
+DELIMITER $$
+CREATE FUNCTION get_risk_factor_by_client
+(
+    client_id INT
+)
+RETURNS INTEGER
+-- DETERMINISTIC ??
+-- MODIFIES SQL DATA -- means insets, updates or deletes data
+READS SQL DATA
+BEGIN
+  DECLARE risk_factor DECIMAL(9,2) DEFAULT 0;
+  DECLARE invoices_count INT;
+  DECLARE invoices_total DECIMAL(9,2);
+  
+  SELECT COUNT(*),SUM(invoice_total)
+  INTO invoices_count,invoices_total
+  FROM invoices i
+  WHERE i.client_id = client_id;
+  
+  SET risk_factor = invoices_total / invoices_count * 5;
+  
+  RETURN IFNULL(risk_factor,0);
+END $$
+DELIMITER ;
+
+
+
+SELECT client_id,
+       name,
+       get_risk_factor_by_client(client_id)
+FROM clients;
+  
