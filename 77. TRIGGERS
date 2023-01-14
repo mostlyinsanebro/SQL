@@ -10,6 +10,7 @@
 -- that on inserting a record in payment table
 -- i.e. on making a payment, the payment_total
 -- in invoices table gets increased.
+DROP TRIGGER IF EXISTS payments_after_insert;
 
 DELIMITER $$
 CREATE TRIGGER payments_after_insert
@@ -20,6 +21,8 @@ BEGIN
      SET payment_total=payment_total+NEW.amount
      where invoice_id=NEW.invoice_id;
 END $$
+
+DELIMITER ;
 
 
 insert into payments values 
@@ -35,6 +38,8 @@ insert into payments values
 -- Create a trigger that gets fired when 
 -- we delete a payment.
 
+DROP TRIGGER IF EXISTS payments_after_delete;
+
 DELIMITER $$
 CREATE TRIGGER payments_after_delete
       AFTER DELETE ON payments
@@ -43,7 +48,8 @@ BEGIN
      UPDATE invoices
      set payment_total=payment_total-OLD.amount
      where invoice_id=OLD.invoice_id;
-END;
+END $$
+DELIMITER ;
 
 
 
