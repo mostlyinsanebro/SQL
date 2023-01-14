@@ -1,0 +1,65 @@
+-- 72.Parameter Validation.
+
+-- Stored procedures can also be used to insert, update or delete data
+-- apart from selecting it.
+
+-- We will also do parameter validation in this lesson to make sure
+-- that no bad data gets inserted in a table.
+
+-- Write a stored procedure to update the payment_total,
+-- payment_date for a given invoice.
+
+DROP PROCEDURE IF EXISTS make_payment;
+
+DELIMITER $$
+CREATE PROCEDURE make_payment
+(
+ invoice_id INT,
+ payment_total DECIMAL(9,2),
+ payment_date DATE
+)
+BEGIN 
+   UPDATE invoices i
+     SET i.payment_total = payment_total,
+     i.payment_date = payment_date
+   where i.invoice_id = invoice_id;
+END $$
+
+DELIMITER ;
+
+
+-- We can also do parameter validation in our stored procedures
+-- so as to avoid any invalid data being entered by the user.
+
+
+-- If we pass payment_total as -ve , like call sql_invoicing.make_payment(2, -100, '2023-01-01');
+-- the above stored procedure will not do anything, it will insert the value.
+
+-- for validation the code is written below.
+DROP PROCEDURE IF EXISTS make_payment;
+
+DELIMITER $$
+CREATE PROCEDURE make_payment
+(
+ invoice_id INT,
+ payment_total DECIMAL(9,2),
+ payment_date DATE
+)
+BEGIN 
+   IF payment_total <= 0 THEN
+      SIGNAL SQLSTATE '22003'
+      SET MESSAGE_TEXT = 'Invalid payment total entered';
+   END IF;
+   
+   UPDATE invoices i
+     SET i.payment_total = payment_total,
+     i.payment_date = payment_date
+   where i.invoice_id = invoice_id;
+END $$
+
+DELIMITER ;
+
+-- If we pass payment_total as -ve now, like call sql_invoicing.make_payment(2, -100, '2023-01-01');
+-- the above stored procedure will throw an error and will not allow to insert -ve value to payment_total column.
+
+-- But , always make sure to do parameter validation to only bare minimum limit, only where needed.
