@@ -1,0 +1,29 @@
+--73. Output Parameters
+
+-- In the previous lessosn, we used the parameters to pass values to the stored procedures
+-- but we can also use them to return values to the calling programs.
+
+-- Select the invoice_total and no_of_invoices
+-- for a client where payment is not made.
+
+DROP PROCEDURE IF EXISTS get_unpaid_invoices_for_client;
+
+DELIMITER $$
+CREATE PROCEDURE get_unpaid_invoices_for_client
+(
+  client_id INT,
+  OUT count_of_invoices INT,
+  OUT sum_of_invoices DECIMAL (9,2)
+)
+BEGIN
+   SELECT count(*), sum(payment_total)
+   INTO count_of_invoices,sum_of_invoices
+   FROM invoices i
+   WHERE i.client_id = client_id;
+END $$
+DELIMITER ;
+
+call sql_invoicing.make_payment(2, -200, '2023-01-01');
+
+-- Use the output parameters only when they are needed badly, 
+cause they cause unnecessary code to be written.
