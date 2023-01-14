@@ -17,7 +17,9 @@ BEGIN
      UPDATE invoices
      SET payment_total=payment_total+NEW.amount
      where invoice_id=NEW.invoice_id;
-END;
+END $$
+
+DELIMITER ;
 
 
 insert into payments values 
