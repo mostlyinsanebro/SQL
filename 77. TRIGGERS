@@ -49,3 +49,5 @@ END;
 
 delete from payments
   where payment_id=9;
+  
+-- Note:- The recently inserted row can be accessed by NEW and recently deleted row can be accessed by OLD keyword.
