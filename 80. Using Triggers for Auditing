@@ -1,0 +1,76 @@
+80. Using Triggers for Auditing
+
+-- We have already used triggers for maintaing data consistency but we can also use triggers 
+-- for logging changes to the data for auditing purposes.
+
+-- For that, we can record all the transactions in a table 
+-- for update. delete and insert in a table so that later we can see who made what changes and when.
+
+-- For recording the logs, we are creating a table using below script.
+
+USE sql_invoicing;
+
+CREATE TABLE payments_audit
+( 
+   client_id    INT             NOT NULL,
+   date         DATE            NOT NULL,
+   amount       DECIMAL(9,2)    NOT NULL,
+   action_type  VARCHAR(50)     NOT NULL,
+   acttion_date DATETIME        NOT NULL
+);
+
+-- For each row meaning
+-- It means that the trigger will be fired for each row in the table that is affected by the trigger.
+-- It is known as row trigger.
+
+-- The other types of triggers are statement level triggers
+-- These are fired only once during each transaction , no matter the number of rows affected by the trigger.
+
+-- Write a trigger which on inserting a row in payments table
+-- updates the invoices table as well and puts its log in payment_audit table.
+
+DROP TRIGGER IF EXISTS payments_after_insert;
+
+DELIMITER $$
+CREATE TRIGGER payments_after_insert
+   AFTER INSERT ON payments
+   FOR EACH ROW
+BEGIN
+     UPDATE invoices i
+     SET payment_total = payment_total+NEW.amount
+     WHERE i.invoice_id = invoice_id ;
+     
+     INSERT INTO payments_audit
+     VALUES (NEW.client_id,NEW.date,NEW.amount,'Insert',NOW());
+	
+END $$
+
+DELIMITER ;
+
+
+Insert into payments 
+values(DEFAuLT,3,5,'2023-01-21',100,2);
+
+-- Write a trigger which on deleting a row in payments table
+-- updates the invoices table as well and puts its log in payment_audit table.
+
+DROP TRIGGER IF EXISTS payments_after_delete;
+
+DELIMITER $$
+CREATE TRIGGER payments_after_delete
+      AFTER DELETE ON payments
+      FOR EACH ROW
+BEGIN 
+     UPDATE invoices
+     set payment_total=payment_total-OLD.amount
+     where invoice_id=OLD.invoice_id;
+     
+     INSERT INTO payments_audit
+     VALUES (OLD.client_id,'2023-01-21',OLD.amount,'Delete',NOW());
+END $$
+DELIMITER ;
+
+Delete from payments
+where payment_id = 12;
+
+
