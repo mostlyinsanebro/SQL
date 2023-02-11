@@ -1,0 +1,38 @@
+81. Events
+
+-- An event is a task or block of code which gets executed according
+-- to a schedule.
+
+-- So, with events we can automate the database tasks such
+-- as deleting stale data or copying data to an archive table
+-- or aggregating data to create reports.
+
+-- Before we can schedule an event, we need to turn on MySQL event scheduler.
+-- It is basically a job/process which is constantly looking for events to execute.
+
+-- We can turn the event scheduler on or off , depending on our need like this:-
+
+-- Show Variables like 'event%';
+
+-- Set global event_scheduler = ON/OFF;
+
+
+-- This event will delete rows from payments_audit table which 
+-- are older than 1 year it is scheduled to run every year from 2023 to 2029.
+
+
+DELIMITER $$
+
+CREATE EVENT yearly_delete_stale_audit_rows
+    ON SCHEDULE 
+       -- AT '2023-02-12' for a particular date 
+       EVERY 1 YEAR STARTS '2023-02-12' ENDS '2029-12-31'
+DO BEGIN
+   DELETE FROM payments_audit 
+   WHERE action_date < NOW() - INTERVAL 1 YEAR;
+    
+-- NOW() - INTERVAL 1 YEAR is equivalent to DATEASUB(NOW(), INTERVAL 1 YEAR)
+
+END $$
+
+DELIMITER ;
