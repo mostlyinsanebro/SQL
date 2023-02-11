@@ -1,0 +1,32 @@
+82. Viewing, Dropping and Altering Events
+
+-- We can view events by using the below statement.
+SHOW EVENTS;
+SHOW EVENTS like 'yearly%';
+
+
+--We can also drop events.
+DROP EVENT IF EXISTS yearly_delete_stale_audit_rows;
+
+
+-- We can also alter the events by using alter statement in place of create
+DELIMITER $$
+
+ALTER EVENT yearly_delete_stale_audit_rows
+    ON SCHEDULE 
+       -- AT '2023-02-12' for a particular date 
+       EVERY 1 YEAR STARTS '2024-02-12' ENDS '2029-12-31' -- altered the start date from 2023 to 2024
+DO BEGIN
+   DELETE FROM payments_audit 
+   WHERE action_date < NOW() - INTERVAL 1 YEAR;
+    
+-- NOW() - INTERVAL 1 YEAR is equivalent to DATEASUB(NOW(), INTERVAL 1 YEAR)
+
+END $$
+
+DELIMITER ;
+
+
+-- or we can use alter to disable or enable an event.
+Alter event yearly_delete_stale_audit_rows enable/disable;
+
