@@ -1,0 +1,44 @@
+83. Transactions
+
+-- A transaction is a group of SQL statements that 
+-- represents a single unit of work.
+
+-- So, all these statements should be completed successfully,
+-- or the transaction fails.
+
+-- An example of a transaction is when you transfer money
+-- from your account to your friend's account.
+-- It consists of two operations 
+-- -> Debiting money from your account and crediting money to the friend's account.
+-- There are two cases for the transaction , one is all the operations get completed successfully
+-- and transaction get completed successfully or the other case is that
+-- money gets debited from your account but some problem occurs during the next step
+-- and money does not credit to friend's account. In that case, the changes made as per the 
+-- first operation will also get rolled back.
+
+
+-- USE CASE
+-- We use transactions where we want a set of changes to succeed or fail together
+-- as a single unit of work.
+
+-- Transactions have a few properties that they follow:-
+-- These are known as ACID Properties.
+
+A -> Atomicity
+-- Atomicity means that the transactions are like atoms. They act as a single unit.
+-- Either all the statements get executed and the transaction gets committed or 
+-- none of the statements get executed and the transactions get undone.
+
+C -> Consistency
+-- Consistency means that with the transactions, our db will always act in a 
+-- consistent state.
+
+I -> Isolation
+-- This means that no two transactions will make change on the same data at the same time.
+-- The transactions will always be isolated from one another.
+-- If two or more transactions try to modify the same data at the same time,the affected rows
+-- get locked and they can be modified by only one transaction, other transactions will have to wait for that transaction to complete.
+
+D -> Durability
+-- This means that once the changes done by a transaction get committed on the database
+-- they will remain there even if there is a power failure or system crash.
