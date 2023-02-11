@@ -1,0 +1,61 @@
+86. Concurrency Problems
+
+-- 1. LOST UPDATE
+-- In this case, the transaction that commits later will override the changes 
+-- made by the previous transaction.
+
+-- This problem occurs when two transactions update the same data at the same time
+-- and there are no locks.In that case, the changes made by the transaction that 
+-- occurs later will be visible on the database and the changes done 
+-- by first transaction are lost.
+
+-- Example:- Suppose there are two transactions, A and B.
+-- Both are trying to update the row (1, ABC, VA, 10)       -- (customer_id,customer_name, city, points)
+-- A wants to update the city from VA to NY and B wants 
+-- to update points from 10 to 20.
+
+-- Now, suppose A has made its changes to the database and at the same time 
+-- B has made the changes and the row was not locked, the final row data
+-- would be (1, ABC, VA, 20) because both A and B read the initial row
+-- and then A made the changes but were not commited and then B made its changes
+-- which were then visible.
+
+
+-- The solution to this is locks, only one transaction will access a row at a time 
+-- and once its changes are completed, the other transaction is allowed to access that row.
+
+-- 2. DIRTY READS
+-- When a transaction reads uncommited data and uses it 
+-- it is known as dirty read.
+
+-- Suppose there are two transactions A and B ,A has updated some value but it is not commited yet
+-- and B reads that data and does calculation on its basis, and later on that data
+-- gets rolled back. This is an example of DIRTY READ then.
+
+
+-- In that cases, there is some isolation LEVEL between the two transactions for example 'read commited'
+-- or something like that.
+
+
+-- 3. NON-REPEATING READS
+-- This problem occurs when the transaction tries to read the data more than two times
+-- and get different results both times because the other transaction has updated it 
+-- before the second and after the first read.
+
+
+
+-- This situation is handled by using 'REPEATABLE READ' isolation level.
+-- It means that all the reads in the transaction are based on the initial snapshot that 
+-- was taken at the start of that transaction, it does not matter , if the 
+-- data gets modified by some other transaction.
+
+
+-- 4. PHANTOM READS
+-- This problem occurs when transaction A is selecting some data for some calculation and 
+-- some phantom/ghost data appears from some other transaction which should have included in 
+-- the transaction A calculation but it is not.
+
+-- In that case, serializability is done which means that the transactions will happen
+-- one after another.
+
+-- This comes with a cost of time and should be used when it is absolutely critical to use it.
