@@ -1,0 +1,47 @@
+84. Creating Transactions
+
+-- Create a transaction to store an order with an item
+
+USE sql_store;
+
+START TRANSACTION;
+
+INSERT INTO orders(customer_id, order_date, status)
+ VALUES(1,'2019-01-01',1);
+ 
+INSERT INTO order_items
+ VALUES(LAST_INSERT_ID(),1,1,1);
+ 
+COMMIT;
+
+-- Either both the statements will get completed or none will.
+
+-- In some cases, we just want a transaction for error checking only.
+-- In that case, we will use rollback in place of commit in the transaction.
+
+USE sql_store;
+
+START TRANSACTION;
+
+INSERT INTO orders(customer_id, order_date, status)
+ VALUES(1,'2019-01-01',1);
+ 
+INSERT INTO order_items
+ VALUES(LAST_INSERT_ID(),1,1,1);
+ 
+ROLLBACK;
+
+-- So, this will rollback the transaction and undo all the changes.
+
+
+-- Note:- MySQL wraps every statement (insert, update and delete) inside a transaction and
+-- then , it will commit that transaction if that statement does
+-- not return any error.
+
+-- For that, a variable 'autocommit' should be set to 'on'.
+
+
+Show variables like 'autocommit';
+
+
+-- We can not set autocommit to off like we could do with aevent_scheduler.
