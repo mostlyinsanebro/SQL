@@ -1,0 +1,33 @@
+85. Concurrency and Locking
+
+-- In MySQL, there is by default locking on the rows that are altered
+-- by a transaction.
+
+-- When a transaction makes changes to a row or multiple rows,those rows
+-- get locked and they remain locked until the transaction is either commited or is rolled back.
+-- During this time, i.e. until the transaction is not commited or rolled back, other transactions
+-- can not make changes to it.They will have to wait.
+
+-- Example 
+-- Open two instances and write this transaction in both of them and then,
+-- run the lines one by one and run till update command of first instance but do not commit and then
+-- try to update the same row from other instance. It will not allow to do so. 
+-- It will only allow,once the first transaction is fully commited.
+
+
+-- Instance 1
+USE sql_store;
+START TRANSACTION; 
+UPDATE customers
+SET points = points+10
+WHERE customer_id = 1;
+COMMIT;
+
+
+-- Instance 2
+USE sql_store;
+START TRANSACTION; 
+UPDATE customers
+SET points = points+10
+WHERE customer_id = 1;
+COMMIT;
