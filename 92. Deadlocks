@@ -1,0 +1,38 @@
+92. DEADLOCKS
+
+-- It is a situation where two or more transactions are not able to complete
+-- because they are waiting for one another to free the resources and it causes none 
+-- of them to proceed and a deadlock occurs.
+
+-- Instance 1. 
+
+USE sql_store;
+START TRANSACTION;
+UPDATE customers set state = 'VA' where customer_id =1;
+UPDATE orders set status = 1 where order_id =1;
+COMMIT;
+
+
+-- Instance 2.
+USE sql_store;
+START TRANSACTION;
+UPDATE orders set status = 1 where order_id =1;
+UPDATE customers set state = 'VA' where customer_id =1;
+COMMIT;
+
+-- Now start transaction 1 and run till first update command
+-- and go to second transaction and run till first update command.
+-- Now, when you try to run the second command of any of the transactions
+-- they will not proceed and the transaction will go intoo deadlock beacuse
+-- the corresponding rows are locked by another transaction.
+
+-- The transaction whgich goes into deadlock will be rolled back fully by the syatem.
+
+
+The precautions for deadlock are:-
+
+-- Do not write the code of two transactions in reverse order.
+
+-- Do not run your transaction during peak hours.
+
+-- Or we can simply ask the user to run the transaction again.
