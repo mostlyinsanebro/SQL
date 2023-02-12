@@ -1,0 +1,16 @@
+94. String Types
+
+-- In the string category, there are a bunch of data types.
+
+-- 1. Char(x) :- Use this for storing fixed length strings like abbreviations of states.
+
+-- 2. Varchar(x):- Use this for storing variable length strings like addresses or zipcodes. They can range upto 64Kb.
+
+-- Use varchar(50):- for username and passwords and use varchar(255) for storing addresses.
+
+-- 3. MEDIUMTEXT:- 16 MB.
+
+-- 4. LONGTEXT :- 4GB.
+
+
+-- Try to choose varchar data type bacause it can be indexed.
