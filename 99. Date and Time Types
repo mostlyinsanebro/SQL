@@ -1,0 +1,13 @@
+99. Date and Time Types
+
+-- Various data types used to store date and time type data are:-
+
+1. DATE
+
+2. TIME
+
+3. DATETIME
+
+4. TIMESTAMP (upto year 2038)
+
+5. YEAR
