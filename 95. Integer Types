@@ -11,3 +11,5 @@
 6. BIGINT 8b
 
 -- Try to use the smallest possible data types to store the values.
+
+-- Try to use the data efficiently for faster execution of queries.
