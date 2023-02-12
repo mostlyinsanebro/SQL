@@ -1,0 +1,19 @@
+96. Fixed-point and Floating-point Types
+
+-- For storing decimal type numbers , we can use these three data types.
+
+1. DECIMAL(p,s) p = precision and s = scale
+
+-- DECIMAL(9,2) can store 1234567.89
+
+-- This data type is used to store fixed valued numbers.
+
+
+-- If you want to store larger decimal numbers but do not need that much precision, then use the following
+-- two data types.
+
+2. FLOAT 4b
+
+3. DOUBLE 8b.
+
+-- Both these are used for storing values used in scientific calculations.
