@@ -1,0 +1,59 @@
+-- 90. REPEATABLE READ Isolation Levels
+
+-- In this isolation level, the first transaction will consider
+-- the initial snapshot of values for all its statements, not the value
+-- which is updated by some other transaction during the first transaction.
+
+-- Instance 1.
+USE sql_store;
+
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+START TRANSACTION;
+Select points
+from customers
+where customer_id = 1;
+
+Select points
+from customers
+where customer_id = 1;
+COMMIT;
+
+
+-- Instance 2.
+USE sql_store;
+
+START TRANSACTION;
+Update customers
+set points = 50
+where customer_id = 1;
+COMMIT;
+
+
+
+-- But we face the problem of phantom read with this transaction isolation level.
+-- Below is the example for it.
+
+
+-- Instance 1.
+Use sql_store;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+START TRANSACTION;
+Select * from customers where state = 'VA';
+COMMIT;
+
+
+-- Instance 2.
+USE sql_store;
+START TRANSACTION;
+Update customers 
+set state = 'VA'
+where customer_id = 1;
+COMMIT;
+
+
+-- Run the statements in Instance 1. till select and then run the whole transaction in 
+-- instance 2. Even after committing the new row, when we select the 'VA' customers
+-- it shows only customer_id = 2 , in the result.
+-- It is because, in repeatable read, the first transaction will consider only the initial snapshot
+-- The customer_id, will act as a phantom for it. This problem is solved by serializable 
+-- transaction isolation level.
