@@ -1,0 +1,21 @@
+98. Enum and Set Types
+
+-- Enums are basically used to restrict the values of a column 
+-- to a limited set of values or strings
+
+-- This is how we can do it.
+
+Alter table sql_store.products
+ADD COLUMN size ENUM('small','medium','large');
+
+Enums are also not reusable.
+
+-- A better approach is to use a different table to use for this purpose as 
+-- a lookup table.
+
+-- Another data type similar to ENUM is SET(...)and both of these are bad data types.
+
+Alter table products
+add column size enum('small','medium','large');
+
+UPDATE `sql_store`.`products` SET `size` = 'SMALL' WHERE (`product_id` = '3');
