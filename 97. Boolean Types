@@ -1,0 +1,12 @@
+97. Boolean Types
+
+-- We need to store true or false values sometimes, for that we use BOOL or BOOLEAN data types.
+
+-- This data type is similar to TinyInt.
+
+-- Here, TRUE is equivalent to 1 and False is equivalent to 0.
+
+-- With a boolean column, we can write our code like this:-
+
+Update posts
+SET is_published = TRUE;
