@@ -1,0 +1,13 @@
+95. Integer Types
+
+-- There are various data types that store Integer(whole numbers without decimals) type values 
+-- These are:-
+
+1. TINYINT 1b
+2. UNSIGNED TINYINT (use it when we want that only positive values are stored in the database)
+3. SMALLINT 2b
+4. MEDIUMINT 3b
+5. INT 4b
+6. BIGINT 8b
+
+-- Try to use the smallest possible data types to store the values.
