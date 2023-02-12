@@ -1,0 +1,29 @@
+100. Blob Types
+
+-- We use blob types to store the binary data like 
+-- photos, videos and pdf's and things like that.
+
+-- The following are the data types for it.
+
+TINYBLOB
+
+BLOB 
+
+MEDIUMBLOB
+
+LONGBLOB
+
+-- But, we must not use these data types in MySQL as 
+-- we should store structured relational data if we are working with a 
+-- relational database.
+
+
+There are some problems that arise with storing binary data in relational databases:-
+
+1. Size of DB gets increased.
+
+2. Slower Backups
+
+3. Performance Problems
+
+4. Mode code to read/write images.
