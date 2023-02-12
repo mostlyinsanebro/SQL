@@ -1,0 +1,27 @@
+91. SERIALIZABLE Transaction Isolation Level
+
+-- This transaction isolation level allows only one transaction 
+-- to run at a time. So, this prevents any phantom reads that may be there.
+
+-- Instance 1.
+Use sql_store;
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+START TRANSACTION;
+Select * from customers where state = 'VA';
+COMMIT;
+
+
+-- Instance 2.
+USE sql_store;
+START TRANSACTION;
+Update customers 
+set state = 'VA'
+where customer_id = 3;
+COMMIT;
+
+-- Serializable allows only one transaction to take place at a time and thus prevents
+-- any concurrency problem that may be there, because there is no concurrency at all at 
+-- this isolation level.
+
+-- The first transaction can not start until the second one is fully committed
+-- and thus prevents tyhe problem.
