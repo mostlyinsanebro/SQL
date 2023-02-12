@@ -1,0 +1,38 @@
+87. Transaction Isolation
+
+-- The lower isolation levels are faster because it does not need 
+-- that much isolation but there are more concurrency problems in this case.
+
+-- The higher concurrency levels are slower because there is more isolation and 
+-- more resources are required i.e. memory and CPU in order to manage the transactions that have to wait,
+-- but there are less concurrency problems.
+
+The four transaction isolations are :- (364.png)
+
+1. Read Uncommitted (Lowest Isolation Level) (Fastest Isolation Level)
+
+2. Read Committed
+
+3. Repeateble Read
+
+4. Serializability.(Highest Isolation Level) (Slowest Isolation Level)
+
+
+-- In MySQL, the default transaction isolation level is repeatable read.
+-- Stick to the default transaction isolation level and change it only when you really have to.
+
+
+-- See the default transction isolation level
+SHOW VARIABLES like 'transaction_isolation%';
+
+
+-- How to set the transaction isolation level
+
+-- We can set the isolation level for a session or for all the transactions globally using 'SESSION'
+-- or 'GLOBAL' as shown below.
+
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE; -- for next transaction only
+
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE; -- for a session
+
+SET GLOBAL TRANSACTION ISOLATION LEVEL SERIALIZABLE;  -- for all the transactions and sessions
