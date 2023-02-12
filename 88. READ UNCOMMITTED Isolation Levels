@@ -1,0 +1,28 @@
+88. Read Uncommitted
+
+-- We are going to see the read uncommitted isolation level in action now.
+
+-- Instance 1.
+
+Use sql_store;
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SELECT points 
+from customers 
+where customer_id = 1;
+
+-- Instance 2.
+
+Use sql_store;
+START TRANSACTION;
+UPDATE customers
+SET points = 20
+where customer_id = 1;
+COMMIT;
+
+-- Execute till set transaction in first instance and then come to second instance 
+-- and run all commands before commit one by one and then go to first instance 
+-- and run the select statement.You will see that the points have been updated to 20 
+-- for the customer even though it has not been committed yet.
+-- This is the problem with read uncommited. It reads uncommited data and causes
+-- a lot of concurrency problems.
+ 
