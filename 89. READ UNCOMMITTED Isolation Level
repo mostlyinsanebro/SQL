@@ -1,0 +1,63 @@
+89. READ COMMITTED
+
+-- We saw that with transaction isolation set to read uncommitted 
+-- the uncommited data from a second transaction is read by 
+-- the first transaction which is a concurrency problem. So, in order to 
+-- solve that, we will now set the transaction isolation level to
+-- read committed.
+
+-- Instance 1.
+USE sql_store;
+
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+Select points
+from customers
+where customer_id = 1;
+
+
+-- Instance 2.
+USE sql_store;
+
+START TRANSACTION;
+Update customers
+set points = 30
+where customer_id = 1;
+COMMIT;
+
+
+-- But the problem with read committed is that it does not take care of non-repeating read problem.
+-- If a value is updated by some other transaction in between reads of a transaction, then the second
+-- time, the transaction reads the updated value, which should not be the case.
+-- Below is the example for that
+
+-- Instance 1.
+USE sql_store;
+
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+START TRANSACTION;
+Select points
+from customers
+where customer_id = 1;
+
+Select points
+from customers
+where customer_id = 1;
+COMMIT;
+
+
+-- Instance 2.
+USE sql_store;
+
+START TRANSACTION;
+Update customers
+set points = 40
+where customer_id = 1;
+COMMIT;
+
+-- In this case, in instance 1. run till the first select statement. The points for
+-- customer 1 are 30 still. Now, come to second instance and run all the commands.
+-- Now, in instance 1. run the second select statement, you will see that the points 
+-- have been updated which should not be the case. The transaction must read the initial
+-- snapshot of points i.e. points = 30 throughout its span and not the value which is updated 
+-- in between by some other transaction. This problem will be solved by non-repeatable read
+-- transaction isolation level.
