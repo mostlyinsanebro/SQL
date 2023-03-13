@@ -1,0 +1,21 @@
+-- 103. DATA MODELLING
+
+-- Data Modelling is basically the process of creating a model in order to store our data in the database.
+
+-- It involves four steps.
+
+-- Step 1.Understand the requirements.
+-- This is the most important step in data modelling. We need to understand the requirements correctly in order to 
+-- create an effective model.
+
+-- Step 2.Build a Conceptual Model.
+-- The next step is to build a conceptual model for the database. It is basically the visual representation of the database.
+
+-- Step 3.Build a Logical Model.
+-- Data Structures for storing data, it is independent of data technology.It just shows you the tables and columns that you need.
+
+-- Step 4.Build a Physical Model.
+-- It is the implementation of the logical model for a particular database technology.
+-- Physical Model includes the exact datatypes supported to our database technology,info. about whether the column will pe nullable or not
+-- the primary keys, info. about views, stored procedures,triggers and so on.
+-- This model is very specific to database technology.
