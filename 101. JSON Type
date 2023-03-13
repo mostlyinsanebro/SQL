@@ -4,7 +4,7 @@
 -- In MYSQL, we can also store JSON documents.JSON is basically a lightweight format
 -- for storing and transferring data over the internet.
 
--- It is used haevily in web and mobile applications.
+-- It is used heavily in web and mobile applications.
 -- JSON objects are stored with curly braces and contain key-value pairs.
 -- Keys are in the string format, so we have to enclose them in "" and values can be in boolean,
 -- string, numbers,arrays etc.
@@ -63,12 +63,12 @@ from products
 WHERE product_id = 1;
 -- where properties ->>'$.manufacturer.name' = "sony";
 
--- This is how we can extract varios pieces of a JSON Object.
+-- This is how we can extract various pieces of a JSON Object.
 
 -- We can also update the JSON objects in the following way...
 
 -- We can use the JSON_SET function for updating and adding new values to the JSON objects..
--- Suppose , we want to update the weight to 20 and add the age key value pair to the JSON object.
+-- Suppose , we want to update the weight to 20 and add the age key-value pair to the JSON object.
 
 
 UPDATE products
