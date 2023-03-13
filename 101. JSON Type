@@ -1,0 +1,101 @@
+-- 101. JSON Type
+
+-- JSON means Javascript Object Notation.
+-- In MYSQL, we can also store JSON documents.JSON is basically a lightweight format
+-- for storing and transferring data over the internet.
+
+-- It is used haevily in web and mobile applications.
+-- JSON objects are stored with curly braces and contain key-value pairs.
+-- Keys are in the string format, so we have to enclose them in "" and values can be in boolean,
+-- string, numbers,arrays etc.
+
+-- In MYSQL, JSON can be used to store multiple key value pairs about each product without having to use
+-- a lot of columns.
+
+-- We are now adding a new JSON type column to the products table.
+-- For that , go to the tool symbol of products table and add 'properties' as column name 
+-- and select type as 'JSON'.
+
+-- Apply the changes.
+
+-- After that,you can ad JSON type value to the properties column.
+
+UPDATE products
+set properties = '
+{
+  "dimensions":[1,2,3],
+  "weight":10,
+  "manufacturer":{"name":"sony"}
+}
+'
+where product_id = 1;
+
+Select * from products where product_id = 1;
+
+-- There are some other ways to create JSON objects in MYSQL, by using the internal functions.
+
+Update products
+set properties = JSON_OBJECT(
+    'dimensions',JSON_ARRAY(1,2,3),
+    'weight','10',
+    'manufacturer',JSON_OBJECT('name','sony')
+)
+where product_id = 1;
+
+-- This is similar to the previous JSON Object.
+
+-- Now,we can extract individual key value pairs from this JSON object, which we would not be able to do if we would have defined it as a VARCHAR type.
+
+-- We can extract the weight from the properties column in the following way.
+-- Format:- JSON_EXTRACT(object_name, path)
+
+Select product_id, JSON_EXTRACT(properties,'$.weight') as weight
+from products
+where product_id = 1;
+
+
+-- There is a shorter way for it.
+
+Select product_id,properties ->>'$.weight' as weight,
+properties -> '$.dimensions[0]' as first_dimension,
+properties ->> '$.manufacturer.name' as manufacturer_name
+from products
+WHERE product_id = 1;
+-- where properties ->>'$.manufacturer.name' = "sony";
+
+-- This is how we can extract varios pieces of a JSON Object.
+
+-- We can also update the JSON objects in the following way...
+
+-- We can use the JSON_SET function for updating and adding new values to the JSON objects..
+-- Suppose , we want to update the weight to 20 and add the age key value pair to the JSON object.
+
+
+UPDATE products
+set properties = JSON_SET(
+	properties,
+    '$.weight',20,                  -- updating a property 
+    '$.age',22                      -- new property
+)
+where product_id = 1; 
+
+
+select * from products;
+
+
+
+-- We can also remove a property in the following way from a JSON Object.
+
+UPDATE products
+set properties = JSON_REMOVE(
+	properties,
+    '$.age'                   --property to be removed
+)
+where product_id = 1; 
+
+
+select * from products;
+
+
+
+-- Both these, SET and REMOVE functions, take a JSON Object modify it and return a new JSON Object.
