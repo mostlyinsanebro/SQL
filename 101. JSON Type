@@ -18,7 +18,7 @@
 
 -- Apply the changes.
 
--- After that,you can ad JSON type value to the properties column.
+-- After that,you can add JSON type value to the properties column.
 
 UPDATE products
 set properties = '
