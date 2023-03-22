@@ -1,0 +1,49 @@
+-- 105. Logical Models
+
+-- Logical models are more detailed than Conceptual Models.
+-- They contain the info. data structures that we are going to
+-- use to store the info. about the attributes and have more
+-- detialed relationship between the entities.
+
+-- Logical Model is independent of database technologies.
+
+-- Type of each attribute is specified in this model.
+
+-- While storing data such as names or addresses, we must split
+-- it into smaller chunks such as first name, last name
+-- or addresses into street, city, zipcode etc. so as to make
+-- the querying and extraction of data easier.
+
+
+-- There are mainly three types of relationships between the entities,
+-- one to one
+-- one to many
+-- many to many
+
+- others are just extracted from these.
+
+-- Here, we had a many to many relationship between student and course
+-- because a student can have multiple courses and a course can have multiple 
+-- students.
+
+
+
+-- Now, there is a problem statement..what if we need to know the date
+-- a student enrolled in a course.
+
+-- Diagram -> Logical Model.png
+
+-- We can not put it in the student entity beacuse a student may enroll
+-- in different courses and we also can not store it in courses entity because 
+-- a course has multiple students..So what to do...
+
+
+-- So, the enrollment dat is an attribute of the enrollment. So, we will have to add
+-- an additional entity for repreenting the relationshp between the student and course.
+-- It is also used for storing the date of enrollment of a student into a course 
+-- and we can also store the  price a student paid to buy a course at that time.
+
+
+-- Logical model gives us a structure for storing data.The entities that we have here
+-- almost end up being tables.
+
