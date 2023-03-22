@@ -1,0 +1,30 @@
+104.Conceptual Models
+
+-- In this chapter, we will be looking at conceptual models.
+
+-- Suppose, we want to build a website for selling online courses.
+-- We will first have to build the conceptual model for creating the
+-- database of that website.
+-- The conecptual model basically represents the entities/things/concepts 
+-- and the relationship between them.
+
+
+-- Quite often, these entities are like people, locations and so on.
+
+-- In this instance, there are two entities , Student and Course.
+
+-- Now, we need a tool to visually represent the entities
+-- and relationship between them.
+
+-- For that , we have two tools -> ER Model or UML (Unified Modelling Languauge).
+
+-- ER Model is used for visually representing data models.
+
+-- Tool for ES Diagram -> draw.io
+
+-- Link for our Conceptual Model -> Conceptual Model.png (saved in this repo)
+
+-- Data modelling is an iterative process.We have keep improving it.
+
+-- Conceptual Model just gives us a high level overview of the business domain and
+-- it keeps us and the business stakeholders on the same page.
