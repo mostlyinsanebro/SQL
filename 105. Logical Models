@@ -1,7 +1,7 @@
 -- 105. Logical Models
 
 -- Logical models are more detailed than Conceptual Models.
--- They contain the info. data structures that we are going to
+-- They contain the info. about the data structures that we are going to
 -- use to store the info. about the attributes and have more
 -- detialed relationship between the entities.
 
@@ -38,10 +38,10 @@
 -- a course has multiple students..So what to do...
 
 
--- So, the enrollment dat is an attribute of the enrollment. So, we will have to add
+-- So, the enrollment date is an attribute of the enrollment. So, we will have to add
 -- an additional entity for repreenting the relationshp between the student and course.
 -- It is also used for storing the date of enrollment of a student into a course 
--- and we can also store the  price a student paid to buy a course at that time.
+-- and we can also store the price a student paid to buy a course at that time.
 
 
 -- Logical model gives us a structure for storing data.The entities that we have here
