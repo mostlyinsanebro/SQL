@@ -16,6 +16,6 @@
 
 -- Step 4.Build a Physical Model.
 -- It is the implementation of the logical model for a particular database technology.
--- Physical Model includes the exact datatypes supported to our database technology,info. about whether the column will pe nullable or not
+-- Physical Model includes the exact datatypes supported to our database technology,info. about whether the column will be nullable or not
 -- the primary keys, info. about views, stored procedures,triggers and so on.
 -- This model is very specific to database technology.
