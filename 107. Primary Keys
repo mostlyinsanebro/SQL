@@ -1,0 +1,11 @@
+-- 107. Primary Keys
+
+-- A primary key is a column that uniquely identifies each record in a given table.
+
+-- In student table, we can not make the first_name or last_name or their combinantion
+-- as primary key because they do not uniquely identify a row.
+-- We can make the email as primary key because it uniquely identifies the rows but it 
+-- is very long and it will be repeated in other tables as foreign key, so we 
+-- introduce a new column to this table as primary key, the 'id' column.
+
+-- Primary Keys.png
