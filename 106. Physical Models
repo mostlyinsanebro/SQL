@@ -1,0 +1,8 @@
+-- 106. Physical Models
+
+-- A physical model is the implementation of our logical model
+-- for a specific database technology.
+
+-- Create the physical model in MySQL now.
+
+-- Physical Model.png
