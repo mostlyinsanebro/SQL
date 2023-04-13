@@ -1,0 +1,30 @@
+-- 109. Foreign Key Constraints
+
+-- Whenever you have a foreign key in a table, you need to set the constraints for that foreign key
+-- and that proctects our data from getting corrupted.
+
+-- In the enrollment table, the course_id is the foreign key that references the student_id in the student table 
+-- and the course_id is the foreign key thata references the course_id in the course table. The combination of both 
+-- these keys form the primary key in the enrollment table.
+
+
+-- The foreign keys are named as:- fk_foreignkeytable_primarykeytable.
+
+-- We can also set the foreign key constraints based on our use case or what the business tells:-
+
+The constraints are as follows:-
+
+1. Restrict :- This will restrict the action from happening for the primary key.
+
+Ex:- RESTRICT DELETE -> will not let the delete hapen on parent table as well for the primary key of corresponding 
+-- foreign key.
+
+2. CASCADE:- Will update the foreign key accordingly, as the primary key is updated.
+
+3. SET NULL:- On the primary key being updated or deleted, the foreign key will be set to null.
+
+4. NO ACTION:- Same as restrict. It prevents or restricts the operation on parent key.
+
+These are the constraints used in foreign key and we have to use them accordingly.
+
+-- Foreign Key Constraints.png 
