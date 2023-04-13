@@ -1,0 +1,30 @@
+-- 108. Foreign Keys
+
+-- When we define a relationship between two tables, there is one
+-- parent and one child. The parent is the one having the primary key
+-- and the child has the foreign key.
+
+-- Here, we have to define a relationship between a student and 
+-- enrollment.
+
+-- As we can not have an enrollment without a student, student is 
+-- the parent and enrollment is the child.
+
+-- We simply can not hav relationship between wo tables without a 
+-- foreign key.
+
+-- A foreign key is basically a column in a table that references 
+-- the primary key in another table.
+
+-- Now, we also make a one-to-many relationship between enrollment and course table.
+-- Doing that, we will have the course_id as the forign key in the enrollment
+-- table.
+
+-- Now, we have to make a primary key in the enrollment table as well. For that, we have
+-- two options, either add a new column enrollment_id in the enrollment table
+-- and then make it primary key or make the combination of 
+-- student_id and course_id as composite primary key. We are making the combination
+-- as primary key as that will prevent us from enrolling the same student in the same
+-- course twice.
+
+-- Foreign Keys.png
