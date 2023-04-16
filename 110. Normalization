@@ -1,0 +1,19 @@
+--110. Normalization
+
+-- While designing our databases, we have to make sure that our database does not allow redundant or duplicate data
+-- because redundant data makes the process of updation, insertion and deletion more complex and also increases the
+-- size of our database.
+
+-- For example:- We are using a name column in several different places and we are making changes in the name. Then,
+-- we will have to make sure that we make change in all the places, otherwise we will have inconsistent data and 
+-- that will be problematic.
+
+-- That is where normalization comes to the rescue.
+
+-- Normalization is basically the process of looking at a database and making sure it is following some predefined rules
+-- that prevent data redundancy from happening. 
+
+-- For most of the applications,we only need to apply the first three normal forms.
+-- 1NF
+-- 2NF
+-- 3NF
