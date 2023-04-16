@@ -1,0 +1,16 @@
+-- 111. NF - First Normal Form
+
+-- The first normal form says that one cell should have a single value
+-- and we can not have repeated columns.
+
+-- Now, look at the courses table, we are going to have multiple tags
+-- in a single column which is not desirable as per the 1NF. Also, we do
+-- not know, how many tags we are going to use, so we can not also use tag1, tag2 ...tagn 
+-- columns in that table.
+
+-- So, to solve this problem, we will make a different table altogether
+-- called tags and will have 2 column in it, tag_id and name and will have many to many relationship 
+-- between courses table and tags table.
+
+
+-- First Normal Form.png
