@@ -1,0 +1,38 @@
+-- 115. My Pragmatic Advice
+
+-- pragmatic ==> practical
+
+-- We do not have to worry about remembering all the Normal Forms rather
+-- we should be concerned about removing redundancy from our tables and not worrying about the normal forms.
+
+-- Whenever you see duplicated values and these values are not foreign keys, then that means
+-- that your tables are not normalized. Just think about eliminating the duplication from the database.
+
+-- First of all while trying to remove redundancy, think about the logical entities and then the 
+-- relation between them.Then, convert that logical model to a physical model.
+
+-- Don't jump into creating tables directly and also take into consideration the requirements, do not apply
+-- normalization blindly.
+
+-- Example..
+
+                              Customers
+ Customer_id                     Name                      Shipping Address
+     1                         Abhinav                  Plot no-13, Street No-1, Gobindgarh farm, Jagadhri
+     1                         Abhinav                  Room no-24, 321, Umrao PG
+
+-- Here, the customer is being repeated again and again for a different shipping address and if we had more columns like
+-- email and phone-number , then the redundancy would be even more.
+
+-- In order to solve this, we will first create a logical model and see which entities are there and what is the relationship between them.
+       
+                  Customer ----------1:n----------> Address
+
+-- Then , we will create a physical model out of it.
+
+            Customers                                                      Adresses
+Customer_id            Name                              Customer_id                    Shipping Address
+     1               Abhinav                                 1                       Plot no-13, Street No-1, Gobindgarh farm, Jagadhri
+                                                             1                       Room no-24, 321, Umrao PG
+
+-- In this way, we have removed the redundancy, without keeping the track which normal form to be folowed, which is the right approach.
