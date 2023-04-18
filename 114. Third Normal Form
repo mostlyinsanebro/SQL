@@ -1,0 +1,18 @@
+-- 114. Third Normal Form
+
+-- Third normal form states that a column in a table
+-- should not be derived from other columns..
+
+
+-- Example:- Suppose we have a table having three columns.
+invoice_total             payment_total                balance
+  100                         40                         60
+
+-- Here, the balance is derived from substracting the payment_total from invoice_total,
+-- which is not right, because incase the payment_total changes, we will also have to update
+-- balance and incase if we forget to update it, it will be problematic.
+
+-- So, the right approach is to use only the invoice_total and payment_total columns, because we 
+-- can always derive the balance from these two columns.
+
+-- Hence, 3NF also helps us to reduce data redundancy and maintain data integrity.
