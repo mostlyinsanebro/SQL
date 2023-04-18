@@ -1,0 +1,33 @@
+-- 113. Second Normal Form
+
+-- The second normal form states that every table should representone entity
+-- and every column in that table should describe that entity.
+
+-- Take the example of courses table here, 
+-- this table is representing a single entity -> course and every column in this table
+-- is describing that entity -> courses.
+
+-- In case, we have a different column that is not an attribute or property of that entity,
+-- then we will put that column in a different table.
+
+-- For example, we put the enrollment in a different table because it is not describing the
+-- course entity.
+
+-- The second normal form says that every column i a table should describe the entity that the
+-- table represents.
+
+
+
+-- Another example :-
+
+-- While seeing a database whether it is following 2NF or not, we have to make sure that each column 
+-- of that table is describing the entity that the table represents. Also, we have to make sure that
+-- each of the column is not duplicated, if it is, try to minimize it by introducing another table.
+
+-- In our data model, one of the table is not following the 2NF..
+
+-- It is the courses table. It has instructors column in it, which does not really represent the course
+-- entity and can also be duplicated many times. To solve this, we can introduce another table here
+-- having instructor_id and name and have one-to-many relationship between courses and instructors table.
+
+-- Second Normal Form.png
