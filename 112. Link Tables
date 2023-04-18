@@ -1,7 +1,7 @@
 -- 112. Link Tables
 
 -- Now, we want a many-to-many relationship between courses table and tags table. But, in the
--- relational models, we can not have dirst many-to-many relationship between two tables. For that,
+-- relational models, we can not have direct many-to-many relationship between two tables. For that,
 -- we have to use a link table.
 
 -- For example:- We had a many-to-many relationship between student and course table. For that, we used a 
