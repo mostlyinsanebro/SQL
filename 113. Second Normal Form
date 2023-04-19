@@ -1,6 +1,6 @@
 -- 113. Second Normal Form
 
--- The second normal form states that every table should representone entity
+-- The second normal form states that every table should represent one entity
 -- and every column in that table should describe that entity.
 
 -- Take the example of courses table here, 
@@ -13,7 +13,7 @@
 -- For example, we put the enrollment in a different table because it is not describing the
 -- course entity.
 
--- The second normal form says that every column i a table should describe the entity that the
+-- The second normal form says that every column in a table should describe the entity that the
 -- table represents.
 
 
