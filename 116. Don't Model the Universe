@@ -1,0 +1,11 @@
+-- 116. Don't model the Universe
+
+-- Design the databases in a way that they support today's problems
+-- and not future problems because that can create a mess.
+
+-- Build a model for your peoblem domain and not the real world.
+
+-- Keep it simple.
+
+-- Do not be afraid of changes because in future you will  
+-- definitely have to make them.
