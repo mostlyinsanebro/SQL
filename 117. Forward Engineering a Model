@@ -1,0 +1,11 @@
+-- 117. Forward Engineering a Model
+
+-- We have created our physicam model, but it is not a database. So, now
+-- we will convert this model into a real database using the "forward engineering"
+-- option that MySQL provides.
+
+
+-- For that, open the physical model -> go to Database menu -> select Forward Engineer,
+-- now select all the setting as they are , it may require to enter the password.
+
+-- This will create a new database.
