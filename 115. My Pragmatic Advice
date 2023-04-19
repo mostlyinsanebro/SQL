@@ -35,4 +35,4 @@ Customer_id            Name                              Customer_id            
      1               Abhinav                                 1                       Plot no-13, Street No-1, Gobindgarh farm, Jagadhri
                                                              1                       Room no-24, 321, Umrao PG
 
--- In this way, we have removed the redundancy, without keeping the track which normal form to be folowed, which is the right approach.
+-- In this way, we have removed the redundancy, without keeping the track which normal form to be followed, which is the right approach.
