@@ -1,0 +1,18 @@
+-- 118. Synchronizing a model with a database
+
+-- Now, if we want to add a column 'coupon' to the enrollment table, we have 2 options for doing that.
+
+-- 1. Add the column directly in the table in database but this will be problematic because we will have to 
+-- make changes to the database in all the diiferent environments where our database is there. Take the case of 
+-- large companies where different environments are there like dev, uat and prod.
+
+-- 2. Other option is to make change to the model and sync it to the database to which we want to make the changes to. 
+-- This is a batter approach.
+
+-- For this, go to Database -> Sync to model -> choose model to which you want to sync to.
+
+-- Here, we have added coupon column to the enrollment table.
+
+-- When we synchronize our model to our database, the coupon column will start to appear in the enrollment table.
+
+-- Sync.png
