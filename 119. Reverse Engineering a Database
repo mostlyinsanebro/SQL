@@ -1,0 +1,13 @@
+-- 119. Reverse Engineering a database
+
+-- What if we want to change a database that does not have a model
+-- For that, we will have to create a database model from a database.
+-- and for that, we will have to reverse engineer that database.
+
+-- For that, go to Database Menu -> Reverse engineer -> Choose the
+-- default settings and reverse engineer the model.
+
+-- This will give us the model showing all the relationships between
+-- the tables and the faults in our design as well.
+
+-- Reverse Engineering.png
