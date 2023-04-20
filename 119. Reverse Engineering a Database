@@ -10,4 +10,8 @@
 -- This will give us the model showing all the relationships between
 -- the tables and the faults in our design as well.
 
+
+-- For now, the fault is that there is no relationship between the
+-- order item notes table and any other table.
+
 -- Reverse Engineering.png
