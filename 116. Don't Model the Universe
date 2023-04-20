@@ -3,7 +3,7 @@
 -- Design the databases in a way that they support today's problems
 -- and not future problems because that can create a mess.
 
--- Build a model for your peoblem domain and not the real world.
+-- Build a model for your problem domain and not the real world.
 
 -- Keep it simple.
 
