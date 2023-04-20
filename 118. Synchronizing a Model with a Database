@@ -7,7 +7,7 @@
 -- large companies where different environments are there like dev, uat and prod.
 
 -- 2. Other option is to make change to the model and sync it to the database to which we want to make the changes to. 
--- This is a batter approach.
+-- This is a better approach.
 
 -- For this, go to Database -> Sync to model -> choose model to which you want to sync to.
 
