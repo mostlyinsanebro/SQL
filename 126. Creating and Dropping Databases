@@ -1,0 +1,9 @@
+-- 126. Creating and dropping Databases
+
+
+-- Creating a database
+CREATE DATABASE IF NOT EXISTS sql_store2;
+
+
+-- Dropping a Database
+DROP DATABASE IF EXISTS sql_store2;
