@@ -1,0 +1,15 @@
+-- 122. Solution - Logical Model
+
+-- First, we will refine the relationships between entities because
+-- there is not always a many-to-many relationship between two entities.
+
+-- Also, do not break the tables into more entities just for the sake
+-- of normalization if it results in fragmentation of data to a large
+-- extent.
+
+-- Instead, do the denaormalization in that case. Let the data get repeated
+-- and let be in a single table.
+
+-- Solution - Logical Model.png
+
+-- Also, create it's Physical Model as well. 
