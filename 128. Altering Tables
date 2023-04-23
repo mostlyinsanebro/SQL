@@ -1,0 +1,22 @@
+-- 128. Altering Tables
+
+-- To modify an already existing table, we use the alter table command.
+-- We can add a column, modify the data type of an existing column or remove 
+-- an already existing column.
+
+-- To add a column to table customers in the database sql_store2, run the following command:-
+
+USE sql_store2;
+
+ALTER TABLE customers
+ DROP last_name;
+
+
+-- To add a column to a table and specifically after a column (first_name), use the command:-
+
+USE sql_store;
+
+ALTER TABLE customers
+ ADD last_name VARCHAR(20) NOT NULL AFTER first_name;
+
+commit;
