@@ -1,0 +1,36 @@
+-- 129. Creating Relationships
+
+-- We have created the customers table and now we have to create a relationship between these tables.
+
+-- For that, we will have to use the customer_id as the foreign key in the orders table. We can use the below query for that.
+
+USE sql_store2;
+
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE customers
+(
+    customer_id INT PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+    last_name  VARCHAR(50) NOT NULL,
+    city    VARCHAR(255),
+    state   VARCHAR(255)
+);
+
+
+DROP TABLE IF EXISTS orders;
+
+CREATE TABLE orders
+(
+  order_id INT PRIMARY KEY,
+  customer_id INT NOT NULL,
+  FOREIGN KEY fk_orders_customers(customer_id)
+     REFERENCES customers(customer_id)
+     ON UPDATE CASCADE
+     ON DELETE NO ACTION
+);
+
+-- Also, once we have created both the customers and orders table, we will not be able to delete the customers table
+-- without having to delete the orders table because the customers table is now part of a relationship. For this,
+-- we will first have to delete orders table because this table is dependent on customers table. After that only, we will be 
+-- able to delete the customers table because that is now free from any relationship.
