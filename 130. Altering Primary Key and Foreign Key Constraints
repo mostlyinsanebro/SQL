@@ -1,0 +1,21 @@
+-- 130. Altering Primary key and Foreign Key Constraints
+
+-- In this lecture, we will learn how to create or drop relationships
+-- between tables that already exists in our database.
+
+-- We can use the alter command to add or drop the foreign keys in a given table.
+
+ALTER TABLE orders
+   DROP FOREIGN KEY orders_ibfk_2,
+   ADD FOREIGN KEY fk_orders_customers(customer_id)
+   references customers (customer_id)
+   ON UPDATE CASCADE
+   ON DELETE NO ACTION;
+
+-- The only problem is that the foreign key name is not fk_orders_customers, it is being saved as orders_ibfk_3 for some reason.
+
+-- We can also add or drop primary keys
+
+ALTER TABLE orders
+   DROP PRIMARY KEY,
+   ADD PRIMARY KEY(order_id);
