@@ -1,0 +1,19 @@
+-- 132. Storage Engines
+
+-- We have various storage engines in MySQL and these storage engines show us
+-- how the data is stored and what features are available to us like transactions etc.
+
+-- If we type 'Show Engines', we can see all the storage engines that are supported in MySQL.
+
+-- The most most used Storage Engines -- MYISAM Aand INNODB.
+
+-- INNODB supports all the current functionalities that are there like Transactions etc.These are not supported by MyISAM.
+
+-- We set the storage engines at the table level,so we use multiple storage engines in the same database.
+
+ALTER TABLE customers
+ ENGINE = InnoDB;
+
+-- Changing the storage engine of a table can be an expensive as MySQL has to rebulid the whole table again
+-- and during that time the table is not accessible, so we should do it during scheduled maintenance if we are
+-- doing it in production.
