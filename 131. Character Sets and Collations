@@ -1,0 +1,43 @@
+-- 131. Character Sets and Collations
+
+-- A character set is basically a table which maps each character to a 
+-- number.
+
+-- Different character sets support different languages.- Asian, Latin, English etc.
+
+-- To view all the character sets supported in current version of Mysql, use 
+SHOW CHARSET;
+
+-- With the utf8 character set, we can store the data in pretty much all the 
+-- languagess.
+-- This is also the character set supported in current version of MySQL.
+
+-- So, when we create a database in our MySQL, our database supports international
+-- languages.
+
+-- The maxlen of utf8 is 3 which means that MySQL uses a maximum of 3 bytes to 
+-- store each character.
+
+-- We can set the character set while creating database or alter it.
+
+CREATE DATABASE db1
+   CHARACTER SET latin1;
+
+ALTER DATABASE db1
+   CHARACTER SET latin1;
+
+-- We can also define character set for a table
+
+CREATE TABLE table1 
+()
+CHARACTER SET latin1;
+
+
+ALTER TABLE table1
+()
+CHARACTER SET latin1;
+
+-- We can also set the character set for a column like below:-
+CREATE TABLE table1
+( name VARCHAR(50) CHARACTER SET latin1 NOT NULL
+);
