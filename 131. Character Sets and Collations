@@ -10,7 +10,7 @@ SHOW CHARSET;
 
 -- With the utf8 character set, we can store the data in pretty much all the 
 -- languagess.
--- This is also the character set supported in current version of MySQL.
+-- This is also the default character set supported in current version of MySQL.
 
 -- So, when we create a database in our MySQL, our database supports international
 -- languages.
