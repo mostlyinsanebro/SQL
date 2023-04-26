@@ -32,6 +32,11 @@ CREATE TABLE table1
 ()
 CHARACTER SET latin1;
 
+create table table1
+( name varchar(5) CHARACTER SET utf8 not null);
+
+
+
 
 ALTER TABLE table1
 ()
