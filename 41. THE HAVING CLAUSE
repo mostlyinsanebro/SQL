@@ -2,7 +2,7 @@
 
 -- Having clause is basically used to filter the data after our rows
 -- have been grouped as per a column.
--- Where clause is used to group the rows before the 
+-- Where clause is used to filter the rows before the 
 -- data is grouped.
 
 
