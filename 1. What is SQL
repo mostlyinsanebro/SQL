@@ -1,0 +1,23 @@
+--1. What is SQL
+
+-- Database -> A database is basically a collection of data stored in such a way
+-- that it can easily be accessed.
+
+-- In order to manage our databases, we connect our system to a software
+-- known as DBMS. We will tell DBMS to query or update our data stored in the database.
+-- It will take those instructions, execute them on the database and will send the
+-- results back to us.
+
+-- There are various databases out there, these are mainly of two types
+-- Relational and Non-relational databases.
+
+-- In relational databases, we store data in tables that are linked to each
+-- other using relationships.
+
+ -- Each table stores data about a specific type of object, like customer,products
+-- orders and so on.
+
+-- SQL is the language that we use to work with these RDBMS.
+
+-- In non-relational databases, we do not have tables or relationships.
+-- These are very different from relational databases. Non-relational DBMS don't understand SQL.
