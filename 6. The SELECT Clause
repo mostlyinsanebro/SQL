@@ -1,0 +1,36 @@
+-- 6. The SELECT Clause
+
+-- Fetchng all the columns in select puts more load on the network
+-- than fetching selected columns.
+
+-- We can also use arithmetic expression in select statement in sql
+
+Select first_name,last_name,points+10,points
+from customers;
+
+Select
+first_name,
+last_name,
+points*10+100 as 'discount factor'
+from customers;
+
+
+-- use distinct to get unique list of records
+
+select distinct state from customers;
+
+
+-- Exercise 
+
+Return all the products
+-- name
+-- unit-price
+-- new_price as unit_price*1.1
+
+
+
+Solution:-
+Select name,
+       unit_price,
+       unit_price*1.1 as new_price
+from products;
