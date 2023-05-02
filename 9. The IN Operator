@@ -1,0 +1,10 @@
+-- 9. The IN Operator
+
+-- Exercise
+-- Return products with quantity in stock equal to 
+-- 49, 38 and 72.
+
+Solution:-
+Select *
+from products
+where quantity_in_stock in (49,38,72);
