@@ -1,0 +1,31 @@
+--7. The WHERE Clause
+
+-- where clause is used to filter data
+
+Select * 
+from customers
+where points > 3000;
+
+-- For this query, the query execution engine will iterate over
+-- each row in the table and evaluate whether the given condition 
+-- is true or not. If it is true, then that row will be added to the reult set.
+
+
+-- <> or != means not equal.
+
+-- where state = 'VA' or 'va' is one and the same thing.
+
+-- dates are not strings but we still use '' to enclose them.
+
+-- Exercise
+-- Get the orders placed this year()
+
+Solution:-
+Select * 
+from customers
+where points > 3000;
+
+
+
+-- Query to get the current year
+Select year(curdate());
