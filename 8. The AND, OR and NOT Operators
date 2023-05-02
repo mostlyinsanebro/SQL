@@ -1,0 +1,40 @@
+-- 8. The AND, OR and NOT Operators
+
+-- These are used to join multiple search conditions.
+
+-- Precedence of operators
+()
+AND
+OR
+
+means AND >>> OR
+
+-- NOT Operator
+-- It is used to negate a condition.
+Select *
+from customers
+where NOT (birth_date > '1990-01-01' or points > 1000);
+
+-- How to evaluate this condition
+-- We can do this like following
+
+Select * 
+from customers
+where birth_date <= '1990-01-01' and points <= 1000;
+
+
+-- Simply negate all the operators that are there and remove the 
+-- NOT operator.
+
+-- Both these queries are equivalent.
+
+-- Exercise
+-- From the order_items table,
+-- get the items for order #6 
+-- where total price is greater than 30.
+
+Solution:-
+Select *
+from order_items
+where order_id = 6
+and quantity*unit_price > 30;
