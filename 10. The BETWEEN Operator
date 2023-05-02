@@ -1,0 +1,24 @@
+-- 10. The BETWEEN Operator
+
+-- *Between is inclusive.*
+
+Select *
+from customers
+where points >=1000 and points <=3000;
+
+or  
+
+Select * 
+from customers
+where points BETWEEN 1000 and 3000;
+
+
+-- Both these expressions are same.
+
+-- Exercise
+-- Return customers born between 
+-- 1/1/1990 and 1/1/2000
+
+Select * 
+from customers
+where birth_date between '1990-01-01' and '2000-01-01';
