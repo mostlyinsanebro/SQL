@@ -1,0 +1,48 @@
+-- 11. The LIKE Operator
+
+-- used to retrieve rows that match a specific string pattern.
+
+-- customers whose first name starts with b
+Select * 
+from customers
+where first_name LIKE 'b%';
+
+-- customers whose first name ends with y
+Select * 
+from customers
+where first_name LIKE '%y';
+
+
+-- _ means single character long.
+Select * 
+from customers
+where first_name LIKE '___y';
+
+-- gets the customers whose first name is exactly four characters longs
+-- and ends with a y.
+
+
+Select * 
+from customers
+where first_name LIKE 'l__y';
+-- gets the customers whose first name starts with l and ends with y
+-- and has 2 characters in between them.
+
+
+-- Exercise
+-- Get the customers 
+-- 1. whose addresses contain TRAIL OR AVENUE
+-- 2. phone numbers end with 9
+
+
+Solution:-
+
+1.
+Select *
+from customers
+where address like '%trail%' or address like '%avenue%';
+
+2.
+Select *
+from customers
+where phone like '%9';
