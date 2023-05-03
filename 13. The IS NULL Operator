@@ -1,0 +1,10 @@
+-- 13. The IS NULL Operator
+
+-- We can use it to get records having no value.
+
+-- Exercise 
+-- Get the orders that are not shipped
+
+Select *
+from orders
+where shipped_date IS NULL;
