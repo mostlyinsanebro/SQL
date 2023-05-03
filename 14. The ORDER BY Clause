@@ -1,0 +1,23 @@
+-- 14. The ORDER BY Clause
+
+-- used to sort data in queries
+
+-- customer_id column is the default sort column because it is
+-- the primary key of this table.
+ 
+-- We can change it through order by clause.
+
+-- In MySQL, we can sort data based on columns that are not there
+-- in the select clause but we can not do that in other sql langages.
+-- We can also sort by an alias.
+
+-- Exercise
+-- order by exercise.png
+-- produce the result shown in screenshot
+-- order by total_price in descending order.
+
+Solution:-
+Select *
+from order_items
+where order_id = 2
+order by quantity*unit_price desc;
