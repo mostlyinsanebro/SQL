@@ -1,0 +1,36 @@
+-- 12. The REGEXP Operator
+
+-- The regular expresion operator allows us to search for more
+-- complex patterns than like operator.
+
+-- ^ = beginning of string
+
+-- $ = end of string
+
+-- | = logical or
+
+-- [abcd]h = means will look for a string having 
+-- a or b or c or d before h.
+
+-- [a-g]h = means will look for a string having any character
+-- from range a to g before h.
+
+-- Exercise
+-- Get the customers whose first names are elka or ambur
+Solution:-
+Select * from customers 
+where first_name regexp 'elka|ambur';
+
+-- last names end with ey or on
+Select * from customers 
+where last_name regexp 'ey$|on$';
+
+
+-- last name starts with my or contains se
+Select * from customers
+where last_name regexp '^my|se';
+
+
+-- last name contains B followed by R or U.
+Select * from customers
+where last_name regexp 'b[ru]';
