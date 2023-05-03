@@ -1,0 +1,30 @@
+-- 15. The LIMIT Clause
+
+-- used to limit the number of records returned from our query.
+
+Select *
+from customers
+LIMIT 3;
+
+-- will return the first 3 records from customers table.
+
+-- we can also set an offset. If we want to display rows from 7 to 9
+-- we can do this:-
+
+
+Select * 
+from customers
+LIMIT 6,3;
+
+
+-- Exercise
+-- Get the top three loyal customers
+
+Solution:-
+Select * 
+from customers
+order by points desc
+limit 3;
+
+
+order:-  from -> where -> order by -> limit
