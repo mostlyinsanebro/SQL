@@ -2,7 +2,7 @@
 -- Join tables order_items and order_item_notes
 --  based on 2 columns i.e. Compound Join
 
--- JOINING TWO TABLES WHERE TWO COLUMNS (Combined) UNIQUELY IDENTIFY A ROW.
+-- JOINING TWO TABLES WHERE TWO OR MORE COLUMNS (Combined) UNIQUELY IDENTIFY A ROW.
 SELECT *
 FROM order_items oi
 JOIN order_item_notes oin
