@@ -12,7 +12,7 @@ ON o.status=os.order_status_id
 ORDER BY order_id;
 
 
--- Exercise (86.png) [Join payments table with clients tanle and payment_methods table]
+-- Exercise (86.png) [Join payments table with clients tanle and payment_methods table in sql_invoicing database]
 USE sql_invoicing;
 
 SELECT payment_id,
