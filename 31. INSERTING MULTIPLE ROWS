@@ -14,3 +14,7 @@ INSERT INTO products(name,quantity_in_stock,unit_price)
        ('cycle',20,75.34),
        ('bike',8,60.57),
        ('car',3,90.88);
+       
+       
+       
+      
