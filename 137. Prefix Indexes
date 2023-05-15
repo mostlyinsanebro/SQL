@@ -1,0 +1,21 @@
+-- 137. Prefix Indexes
+
+-- Now, if the column we want to create index on is a string column like char,varchar,blob and text
+-- then , it may take up a lot of space and our index may be slower because it would not be stored in 
+-- memory due to it's large size.
+
+-- To resolve this, we store only the first few characters or the prefix of the column.
+-- Example:-
+-- Create index on the first_name column of our table.
+
+CREATE INDEX idx_firstname ON CUSTOMERS (first_name(optimal_length));
+
+-- The optimal_length field is mandatory in case of text and blob and optional in case of varchar and char.
+
+
+-- To find the potimal length , use the following query and see which return the maximum unique rows.
+
+Select count(distinct left(first_name,1)) from customers;  -- 10
+
+
+Select count(distinct left(first_name,5)) from customers; -- 12 , so 5 is the optimal prefix length.
