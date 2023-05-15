@@ -1,0 +1,38 @@
+-- 134. Indexes
+
+-- Indexes are basically data structures that database engines use
+-- to quickly find data.
+
+-- It is just like the index of a telephone directory.
+
+-- Suppose, we have to query all the crores of rows in the customers
+-- table and find the customers that have state = 'CA'.
+-- SQL will have to query through each of the rows for finding this
+-- and it will take time.
+
+
+-- We can use index on the state column. We store only the state 
+-- in our index which references to the records in the customers table
+-- corresponding to the states. It makes querying the data much faster
+-- because SQL will only read the rows corresponding to the index of
+-- state = 'CA'.
+
+-- Also, indexes are small enough that they can fit in memory. So, it 
+-- makes it a lot faster to use them to find data as opposed to the databases
+-- which are stored on disk.
+
+
+-- But indexes come with a cost.
+
+1. They increase the size of database because they have to be permanently stored 
+next to our tables.
+
+2.They slow down our writes as whenever we have to insert or update data in our table,
+SQL has to update the corresponding indexes as well.
+
+
+
+Design indexes based on your queries, not your tables because indexes are used to make our 
+queries faster, not our tables.
+
+
