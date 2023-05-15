@@ -1,0 +1,4 @@
+-- 133. Indexing for high performance
+
+-- Indexes speed up our queries.It is used in large databases and 
+-- websites with very high traffic. 
