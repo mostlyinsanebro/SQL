@@ -1,0 +1,24 @@
+-- 136. Viewing Indexes
+
+-- To view indexes, write
+SHOW INDEXES IN customers;
+
+
+-- This will give us the primary(clustered) and the secondary indexes on a table.
+-- Primary indexes are basically for the primary keys of a table.
+-- When we create a primary key for a table, SQL automatically creates the clustered or primary index
+-- for a table so that we can quickly look up indexes by their Id.
+
+-- Collation represents how data is sorted in our index -> A = Asc  D = desc
+-- Cardinality is estimated number of unique values in our index.
+
+
+-- Others are seconday index, whenever we create the secondary indexes SQL automatically includes
+-- the primary key to the index as well, it is just not written in column_name but it is there.
+-- All the index are stored as BTREE = Binary Tree
+
+
+SHOW INDEXES in orders;
+
+-- Whenever we creat a relationship between two tables, SQL automatically creates an index on the foreign key 
+-- so that we can quickly join our tables.
