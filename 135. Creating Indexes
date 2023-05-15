@@ -1,0 +1,37 @@
+-- 135. Creating Indexes
+
+-- Take the example of customers table.Withou index, when we run the query
+Explain select customer_id from customers where state = 'CA';
+
+
+-- result =:- 9, 18, 19
+
+-- then the type is ALL means no index is there and rows = 12 which means
+-- SQL has queriesd all the 12 rows in our table to find these rows.
+
+-- Now, we create an index on customers table having state column.
+
+CREATE INDEX idx_state ON CUSTOMERS(state);
+
+
+
+-- Now, when we run
+Explain select customer_id from customers where state = 'CA';
+
+-- now, type is ref means index is there, possible_keys = idx_state, key = idx_state, rows = 3
+-- means now only three rows were queried to get the result, which has decreased the time and cost of
+-- our query directly.
+
+-- Exercise (Write a query to find customers with more than 1000 points)
+
+Explain Select * from customers where points > 1000;
+-- rows = 12
+
+-- Create index on it
+CREATE INDEX idx_points ON CUSTOMERS(points);
+
+
+-- Now, see how many rows queried for getting the result through explain
+-- Explain Select * from customers where points > 1000;
+
+-- rows = 7 and possible_keys = idx_points and key = idx_points.
