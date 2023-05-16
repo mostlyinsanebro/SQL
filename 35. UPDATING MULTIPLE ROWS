@@ -15,6 +15,9 @@ payment_total=invoice_total*0.5,
 payment_date=due_date;
 
 
+-- But for this, we will have to turn off the safe update from MYSQL Workbench icon -> preferences -> Turn off Safe Updates.
+
+
 -- Exercise
 -- Write an SQL query to give any customers born before
 -- 1990 50 extra points.
