@@ -7,7 +7,7 @@ set payment_total=100,payment_date = '2022-08-22'
 where invoice_id=1;
 
 
--- Now, update the payment_total and payment_total to the default values.
+-- Now, update the payment_total and payment_date to the default values.
 
 Update invoices 
 set payment_total=Default,payment_date = null
