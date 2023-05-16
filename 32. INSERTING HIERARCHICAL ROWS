@@ -5,7 +5,7 @@ INSERT INTO orders(customer_id,order_date,status)
 VALUES (1,'2015-08-22',1);
 
 
--- Insert two records of order_id = 12 in order_items table.wWe inserted a record with this order_id in order table.
+-- Insert two records of order_id = 12 in order_items table.We inserted a record with this order_id in order table.
 INSERT INTO ORDER_ITEMS
 VALUES (last_insert_id(),1,1,4.95),
 	   (last_insert_id(),2,3,7.89);
