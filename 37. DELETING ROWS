@@ -6,6 +6,7 @@ Delete from invoices
 where invoice_id=1;
 
 
+
 -- Note: I tried to delete the rows from invoices table 
 -- where client_id=1, but it gave an error saying can't delete a parent row.
 -- Reason was, there was no entry for client_id=1 in invoices at that time.
