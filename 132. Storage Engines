@@ -17,3 +17,5 @@ ALTER TABLE customers
 -- Changing the storage engine of a table can be an expensive as MySQL has to rebulid the whole table again
 -- and during that time the table is not accessible, so we should do it during scheduled maintenance if we are
 -- doing it in production.
+
+
