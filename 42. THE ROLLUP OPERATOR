@@ -1,6 +1,6 @@
 -- 42. The rollup operator
 
--- It is basically used to summarize the data of the whole result set.alter
+-- It is basically used to summarize the data of the whole result set.
 
 Select 
 	client_id,
