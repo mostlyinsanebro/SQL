@@ -19,7 +19,7 @@ having total_invoices>500
 -- in where clause, we can also select the column that is
 -- not there in the select clause
 -- but in having , we can not do that. We will have to select 
--- a column from the select clause only..alter
+-- a column from the select clause only.
 
 -- Write a query to get the total_invoices for each client
 -- and also put the condition of only getting
