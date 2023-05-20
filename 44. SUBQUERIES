@@ -16,4 +16,4 @@ Select *
 from employees
 where salary>
 	(Select avg(salary)
-     from employees)
+     from employees);
