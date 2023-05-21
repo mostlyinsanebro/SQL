@@ -13,7 +13,7 @@ from orders;
 
 -- IF(expression,arg1,arg2)
 -- If the expression is true, then IF function return arg1
--- else it return arg2.
+-- else it returns arg2.
 
 
 -- EXERCISE (349.png and 350.png)
