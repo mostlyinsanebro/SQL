@@ -39,3 +39,7 @@ where invoice_id=3;
 UPDATE client_balance
 set due_date=DATE_ADD(due_date, INTERVAL 2 DAY)
 where invoice_id=2;
+
+
+
+-- The views will update data in the base tables through update or delete statements.
