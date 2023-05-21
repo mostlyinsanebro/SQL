@@ -4,14 +4,14 @@
 -- times like add or subtract two dates etc.
 
 1. DATE_ADD() Function:-
--- Add some quantity i.e a day or a yaer to the date.
+-- Add some quantity i.e a day or a year to the date.
 
 -- Select DATE_ADD(NOW(), INTERVAL 1 DAY);
 -- Result:- Tomorrow's date with the same time.
 
 
 2. DATE_SUB() Function:-
--- Subtract some quantity i.e a day or a yaer to the date.
+-- Subtract some quantity i.e a day or a year to the date.
 
 -- Select DATE_SUB(NOW(), INTERVAL 1 DAY);
 -- Result:- Yesterday's date with the same time.
