@@ -64,7 +64,7 @@
 -- Right('Abhinav',n).
 
 -- Select Right('Abhinav',5); -- here n=5.
--- Result:-bhinav.
+-- Result:-hinav.
 
 
 9.Substring() Function:-
