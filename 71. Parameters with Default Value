@@ -27,6 +27,7 @@ Delimiter ;
 Call get_clients_by_state(null);
 
 
+
 -- Now, if we want to get the clients for all the states if null is passed
 -- as parameter and we want client for a particular state if that state is passed as a 
 -- parameter, then we can use the following query for it.
