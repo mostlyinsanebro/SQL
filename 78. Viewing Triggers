@@ -6,7 +6,7 @@
 -- Thus, to see triggers we will have to use "Show Triggers" statement
 -- to view all triggers in the current database.
 
--- for viwing a trigger related to a specific table, 
+-- for viewing a trigger related to a specific table, 
 -- we can use 
  Show triggers like 'payments%';
 
