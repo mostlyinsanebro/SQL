@@ -19,11 +19,12 @@ BEGIN
    SELECT count(*), sum(payment_total)
    INTO count_of_invoices,sum_of_invoices
    FROM invoices i
-   WHERE i.client_id = client_id;
+   WHERE i.client_id = client_id
+   and payment_total = 0;
 END $$
 DELIMITER ;
 
-call sql_invoicing.make_payment(2, -200, '2023-01-01');
+-- Execute the procedure through the lightning icon and pass value only in the client_id.
 
 -- Use the output parameters only when they are needed badly, 
-cause they cause unnecessary code to be written.
+-- cause they cause unnecessary code to be written.
