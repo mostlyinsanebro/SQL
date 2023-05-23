@@ -61,5 +61,6 @@ DELIMITER ;
 
 -- If we pass payment_total as -ve now, like call sql_invoicing.make_payment(2, -100, '2023-01-01');
 -- the above stored procedure will throw an error and will not allow to insert -ve value to payment_total column.
+-- The message_text will be displayed in the list of messages below.
 
 -- But , always make sure to do parameter validation to only bare minimum limit, only where needed.
