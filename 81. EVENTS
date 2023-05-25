@@ -10,6 +10,7 @@
 -- Before we can schedule an event, we need to turn on MySQL event scheduler.
 -- It is basically a job/process which is constantly looking for events to execute.
 
+
 -- We can turn the event scheduler on or off , depending on our need like this:-
 
 -- Show Variables like 'event%';
