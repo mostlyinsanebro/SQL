@@ -31,7 +31,7 @@ SHOW VARIABLES like 'transaction_isolation%';
 -- We can set the isolation level for a session or for all the transactions globally using 'SESSION'
 -- or 'GLOBAL' as shown below.
 
-SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE; -- for next transaction only
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE; -- for next transaction only
 
 SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE; -- for a session
 
