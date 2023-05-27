@@ -24,6 +24,7 @@
 -- Transactions have a few properties that they follow:-
 -- These are known as ACID Properties.
 
+
 A -> Atomicity
 -- Atomicity means that the transactions are like atoms. They act as a single unit.
 -- Either all the statements get executed and the transaction gets committed or 
