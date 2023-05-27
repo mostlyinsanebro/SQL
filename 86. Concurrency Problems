@@ -1,5 +1,9 @@
 86. Concurrency Problems
 
+-- There is default locking behaviour in MySQL which takes care of most of the concurrency
+-- problems but there are still some problems that are neeeded to be dealt with, seperately.
+
+
 -- 1. LOST UPDATE
 -- In this case, the transaction that commits later will override the changes 
 -- made by the previous transaction.
