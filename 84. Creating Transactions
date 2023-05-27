@@ -44,4 +44,4 @@ ROLLBACK;
 Show variables like 'autocommit';
 
 
--- We can not set autocommit to off like we could do with aevent_scheduler.
+-- We can not set autocommit to off like we could do with event_scheduler.
