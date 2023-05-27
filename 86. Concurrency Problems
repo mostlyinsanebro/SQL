@@ -5,6 +5,9 @@
 
 
 -- 1. LOST UPDATE
+-- This problem occurs when two transactions are trying to change the same data without 
+-- using locks.
+
 -- In this case, the transaction that commits later will override the changes 
 -- made by the previous transaction.
 
@@ -27,6 +30,7 @@
 
 -- The solution to this is locks, only one transaction will access a row at a time 
 -- and once its changes are completed, the other transaction is allowed to access that row.
+-- MySQL makes use of locks by default.
 
 -- 2. DIRTY READS
 -- When a transaction reads uncommited data and uses it 
