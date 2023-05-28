@@ -10,7 +10,7 @@
 -- As we can not have an enrollment without a student, student is 
 -- the parent and enrollment is the child.
 
--- We simply can not hav relationship between wo tables without a 
+-- We simply can not have a relationship between two tables without a 
 -- foreign key.
 
 -- A foreign key is basically a column in a table that references 
