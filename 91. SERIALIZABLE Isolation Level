@@ -24,4 +24,4 @@ COMMIT;
 -- this isolation level.
 
 -- The first transaction can not start until the second one is fully committed
--- and thus prevents tyhe problem.
+-- and thus prevents the problem.
