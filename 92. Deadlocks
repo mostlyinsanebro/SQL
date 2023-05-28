@@ -23,10 +23,10 @@ COMMIT;
 -- Now start transaction 1 and run till first update command
 -- and go to second transaction and run till first update command.
 -- Now, when you try to run the second command of any of the transactions
--- they will not proceed and the transaction will go intoo deadlock beacuse
+-- they will not proceed and the transaction will go into deadlock beacuse
 -- the corresponding rows are locked by another transaction.
 
--- The transaction whgich goes into deadlock will be rolled back fully by the syatem.
+-- The transaction which goes into deadlock will be rolled back fully by the system.
 
 
 The precautions for deadlock are:-
