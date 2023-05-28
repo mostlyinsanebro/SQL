@@ -26,4 +26,4 @@ There are some problems that arise with storing binary data in relational databa
 
 3. Performance Problems
 
-4. Mode code to read/write images.
+4. More code to read/write images.
