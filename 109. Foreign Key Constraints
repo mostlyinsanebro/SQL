@@ -4,7 +4,7 @@
 -- and that proctects our data from getting corrupted.
 
 -- In the enrollment table, the course_id is the foreign key that references the student_id in the student table 
--- and the course_id is the foreign key thata references the course_id in the course table. The combination of both 
+-- and the course_id is the foreign key that references the course_id in the course table. The combination of both 
 -- these keys form the primary key in the enrollment table.
 
 
