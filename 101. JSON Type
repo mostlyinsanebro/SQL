@@ -57,7 +57,7 @@ where product_id = 1;
 -- There is a shorter way for it.
 
 Select product_id,properties ->>'$.weight' as weight,
-properties -> '$.dimensions[0]' as first_dimension,
+properties ->> '$.dimensions[0]' as first_dimension,
 properties ->> '$.manufacturer.name' as manufacturer_name
 from products
 WHERE product_id = 1;
