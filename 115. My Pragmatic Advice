@@ -26,7 +26,7 @@
 
 -- In order to solve this, we will first create a logical model and see which entities are there and what is the relationship between them.
        
-                  Customer ----------1:n----------> Address
+                  Customer ----------1:n----------> Shipping address
 
 -- Then , we will create a physical model out of it.
 
