@@ -21,7 +21,7 @@ ALTER TABLE customers
 
 commit;
 
--- We can also makes more than one change to a table in one go, for ex:- We can drop a column,
+-- We can also make more than one change to a table in one go, for ex:- We can drop a column,
 -- add a column and change the data type or attributes of one or more columns.
 -- To do this, we can add a comma and add another clause to the statement.
 
