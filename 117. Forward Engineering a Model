@@ -1,6 +1,6 @@
 -- 117. Forward Engineering a Model
 
--- We have created our physicam model, but it is not a database. So, now
+-- We have created our physical model, but it is not a database. So, now
 -- we will convert this model into a real database using the "forward engineering"
 -- option that MySQL provides.
 
