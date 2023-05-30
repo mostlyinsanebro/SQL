@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS customers
    points      INT NOT NULL DEFAULT 0
 );
 
--- We can use various keywords while creating databases like UNIQUE, AUTO_INCREMENT, DEFAUKT, NOT NULL etc.
+-- We can use various keywords while creating databases like UNIQUE, AUTO_INCREMENT, DEFAULT, NOT NULL etc.
