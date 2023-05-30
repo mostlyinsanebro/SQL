@@ -7,7 +7,7 @@
 -- of normalization if it results in fragmentation of data to a large
 -- extent.
 
--- Instead, do the denaormalization in that case. Let the data get repeated
+-- Instead, do the denormalization in that case. Let the data get repeated
 -- and let be in a single table.
 
 -- Solution - Logical Model.png
