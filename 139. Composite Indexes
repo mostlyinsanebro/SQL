@@ -1,0 +1,25 @@
+-- 139. Composite Indexes
+
+-- Suppose we have to search for customers that live in 'CA' and have points > 100.
+
+-- Now, if we write 
+Select *
+from customers
+where state = 'CA' and points > 1000;
+
+-- MySQL will choose state index automatically to pace up this query but it will still have 
+-- to do a full table scan for points > 1000. For this, we will create a composite index having 
+-- both these columns.This will make our query much more optimised but keep in mind to not include 
+-- more than 4 - 6 columns in the composite indexes. For real world examples, composite indexes are used.
+
+CREATE INDEX idx_state_points ON customers(state, points);
+
+Select *
+from customers
+where state = 'CA' and points > 1000;
+
+
+-- MySQL automatically picks up the most optimised index for our query.
+
+-- MySQL will automatically use the primary key with the index columns, so it is better to use composite indexes
+-- as single-column indexes will waste a lot of space.
