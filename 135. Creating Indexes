@@ -22,6 +22,9 @@ Explain select customer_id from customers where state = 'CA';
 -- means now only three rows were queried to get the result, which has decreased the time and cost of
 -- our query directly.
 
+-- possible keys are the possible indexes that can be used for the query and key is the actual index that
+-- MySQL chose on the basis of best performance from possible keys.
+
 -- Exercise (Write a query to find customers with more than 1000 points)
 
 Explain Select * from customers where points > 1000;
