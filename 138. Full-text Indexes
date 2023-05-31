@@ -1,0 +1,67 @@
+-- 138. Full Text Indexes
+
+-- These special kind of indexes are used to create fast and flexible search engines in our application.
+
+-- Now, given a table posts and we want to get those posts whose title or body conatins 'react redux' in any order.
+-- We can try to get it using the following query,
+
+Select *
+from posts
+where title like '%react redux%' or
+       body like '%react redux%';
+
+-- Here, we will get the rows having this search phrase in them but will not get the react redux in reverse order or
+-- react redux seperated by a word or something like that.
+
+-- Also, if we use prefix indexes for these search phrases, we will still face problems because these search phrases may 
+-- not be included in the prefix index length. That is why, we will have to use full-text indexes.
+
+-- These indexes store the entire string columns, they ignore in, on , the and they store a list of words and corresponding to those 
+-- words they store a list of rows that these words appear in.
+
+CREATE FULLTEXT INDEX idx_title_body on posts (title,body);
+
+SELECT *
+FROM posts
+WHERE MATCH(title,body) AGAINST ('react redux');
+
+
+-- We can also get the relevance score 
+SELECT *,MATCH(title,body) AGAINST ('react redux')
+FROM posts
+WHERE MATCH(title,body) AGAINST ('react redux');
+
+
+-- Now these search engines have two modes, one is the natural language mode and other is the boolean mode
+-- through which we can include or exclude ceratin words from our search phrases just like we do with google.
+
+
+Select *
+from posts
+where match(title,body) against ('react redux ' IN BOOLEAN MODE);
+-- This will search for all the titles and bodies having react or redux and in any order.
+-- We can also exclude or include some words in our query.
+
+
+Select * 
+from posts 
+where match(title,body) against ('react -redux' IN BOOLEAN MODE);
+-- This will search for all the titles and bodies having only react and not redux.
+
+
+Select *
+from posts
+where match(title,body) against ('react -redux +form' IN BOOLEAN MODE);
+-- This searches for all titles and bodies having only react and not redux and has form in any order.
+
+
+
+-- For querying the exact strings, use double quotes like
+Select *
+from posts
+where match(title,body) against ('"handling a form"' IN BOOLEAN MODE);
+
+
+-- These indexes are used to build powerful search engines.
+-- Use these indexes if you want to search in long length columns like bolg posts etc.
+-- If you are searching in smaller length string columns like name, address then use prefix indexes.
