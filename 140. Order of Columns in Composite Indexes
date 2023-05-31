@@ -1,0 +1,20 @@
+-- 140. Orders of columns in Composite Indexes
+
+-- The order of columns in indexes is determined by the following rules.
+
+-- Rule 1 . Use the most frequently used columns first.
+-- meaning if we have 5 queries and all these queries are making use of state column
+-- to search, then it makes sense to create an index that have state column in it first.
+
+
+-- Rule 2. Use the columns having a higher cardinality first in our indexes but always look 
+-- at the queries and then decide which order is the most optimal for it beacuse we can not 
+-- create a general index which is optimal for all the queries.
+
+
+-- We can also use an index of our choice by using the following query,
+
+Select *
+from customers
+USE INDEX (idx_lastname_state)
+where state = 'CA' and last_name like 'A%';
