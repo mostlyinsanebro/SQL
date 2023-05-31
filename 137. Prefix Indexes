@@ -13,7 +13,7 @@ CREATE INDEX idx_firstname ON CUSTOMERS (first_name(optimal_length));
 -- The optimal_length field is mandatory in case of text and blob and optional in case of varchar and char.
 
 
--- To find the potimal length , use the following query and see which return the maximum unique rows.
+-- To find the optimal length , use the following query and see which return the maximum unique rows.
 
 Select count(distinct left(first_name,1)) from customers;  -- 10
 
