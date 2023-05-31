@@ -1,6 +1,6 @@
 -- 135. Creating Indexes
 
--- Take the example of customers table.Withou index, when we run the query
+-- Take the example of customers table.Without index, when we run the query
 Explain select customer_id from customers where state = 'CA';
 
 
