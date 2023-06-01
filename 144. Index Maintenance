@@ -1,0 +1,17 @@
+-- 144. Index Maintenance
+
+-- Watch out for duplicate indexes and redundant as you keep on creating 
+-- the indexes.
+
+-- MySQL does not stop you from creating duplicate index so check the previos 
+-- indexes before creating new ones.
+
+-- Before creating a new index, always check the existing indexes and check
+-- for duplicate or redundant or unused index if they are there.
+
+
+-- Redundant Indexes:-
+Index on A is redundant index to index on A,B because A,B can be used to optimise the
+same query that A, B can be used for.
+
+-- But B is not redundant index to A,B because they satisfy different queries.          
