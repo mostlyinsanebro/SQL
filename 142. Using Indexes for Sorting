@@ -1,0 +1,43 @@
+-- 142. Using Indexes for Sorting
+
+-- So far, we have used indexes for filtering the data but we can also use it for 
+-- sorting the data.
+
+-- When we create an index on a column, then MySQL sorts that column and then stores 
+-- them in the index and thus we can use these indexes for sorting the data.
+
+-- So, when we sort the data on a column that has index on it , the cost is very less
+-- because it uses only the index for getting sorted data but if we use a column which
+-- is not in the index, then a full table-scan is done and file-sort sorting technique 
+-- is used and and it is a very costly operation.
+
+-- The cost of a query which does not use an index for sorting is around 16 and
+-- the cost of query which uses index of sorting is ~ 1.7. So, try to create an 
+-- index for making sorting optimised.
+
+
+-- Get cost of last query by :-
+
+SHOW STATUS LIKE 'last_query_cost';
+
+-- Basic rule is that the order of columns in the sorting query  should be same as
+-- the order of columns in the index used for this query or else it will not be used
+-- by MySQL as it is not optimised.
+
+-- a,b -> index columns
+
+-- will optimise queries having sorting order as :-
+-- a
+-- a,b
+-- a desc, b desc
+
+
+--and not 
+-- a, c, b
+-- b
+These will result in a full table scan.
+
+
+
+-- a , b desc , in this case MySQL uses index and then does filesort , so cost
+-- is very much.
