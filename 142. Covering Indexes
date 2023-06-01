@@ -1,0 +1,17 @@
+-- 142. Covering Indexes
+
+-- In all the queries that we have used so far regarding the indexes, we have 
+-- only picked customer_id column, what is the reason for that:-
+
+Explain select customer_id from customers
+order by state;
+
+
+-- When we try to get the columns which are there in our index , then our MySQL
+-- is able to cover the whole query using index only and full table scan is not 
+-- done and thus our query is optimised. These are known as covering indexes.
+-- Reason -> Indexes are stored in memory and not on disk and are thius faster. 
+
+-- But if we try to get the columns that are not in the index, then query becomes
+-- slower. So, see your where clause and try to include all or most of columns 
+-- that are there in the where clause.
