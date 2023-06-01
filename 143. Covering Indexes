@@ -1,4 +1,4 @@
--- 142. Covering Indexes
+-- 143. Covering Indexes
 
 -- In all the queries that we have used so far regarding the indexes, we have 
 -- only picked customer_id column, what is the reason for that:-
