@@ -1,0 +1,46 @@
+-- 141. When Indexes are ignored
+
+-- There are situations where we have an index but we still face performance
+-- problems.
+
+-- Example :-
+Select *
+from customers where state = 'CA' or points > 1000;
+
+-- The rows traversed for this query are 14 as our query will do a 
+-- full-index search. For enhancing this query, we can break the query down 
+-- into union and also create a new index on points column and use it.
+
+CREATE INDEX idx_points ON customers(points);
+
+Explain Select *
+from customers
+where state = 'CA' 
+union
+Select *
+from customers
+where points > 1000;
+
+
+-- This query is enhanced as the first part of our query uses the state index
+-- and second part used points index and thus they optimised the query together.
+-- Total count for index scan = 12
+
+
+Select customer_id from customers
+where points +10 > 2010;
+
+-- The rows traversed are :- 14 because we are using a column in an expression 
+-- here and MySQL is not able to utilize our index in the best possible way.
+-- when we use it in a column.
+
+
+
+-- For resolving this, do
+Select customer_id from customers
+where points > 2000;
+
+-- The rows traversed are :- 6 now because MySQL is utilizing the index.
+
+-- Takeaway -> Use the columns in isolated state to utilize the indexes fully.
+
